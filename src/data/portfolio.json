@@ -53,6 +53,7 @@
   ],
   "projects": [
     {
+      "slug": "ai-assisted-operations",
       "title": "AI-Assisted Operations Insights",
       "oneLine": "Optimizing enterprise forecasting through data readiness.",
       "problem": "Raw enterprise data lacked the structure and quality required for reliable AI-driven forecasting.",
@@ -61,6 +62,7 @@
       "outcome": "Established a foundation for AI readiness, reducing data cleaning time by 40% for future ML initiatives."
     },
     {
+      "slug": "enterprise-metrics-framework",
       "title": "Enterprise Metrics & Reconciliation Framework",
       "oneLine": "Unifying disparate data streams for executive clarity.",
       "problem": "Disparate reporting across business units led to data inconsistencies in executive dashboards.",
@@ -69,6 +71,7 @@
       "outcome": "Improved data accuracy by 99% and provided a single source of truth for cross-functional leadership."
     },
     {
+      "slug": "data-platform-readiness",
       "title": "Data Platform Readiness Assessment",
       "oneLine": "Architecting the roadmap for cloud-native migration.",
       "problem": "The migration to Databricks required a deep understanding of existing dependencies and data governance impacts.",

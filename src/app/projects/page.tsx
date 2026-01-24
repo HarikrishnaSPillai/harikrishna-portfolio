@@ -27,7 +27,7 @@ export default function Projects() {
                             </p>
                             <div className="mt-auto">
                                 <Link
-                                    href={`/projects#${idx}`}
+                                    href={`/projects/${project.slug}`}
                                     className="text-sm font-sans font-bold text-gray-900 hover:text-gray-500 transition-colors inline-flex items-center gap-2"
                                 >
                                     View details
