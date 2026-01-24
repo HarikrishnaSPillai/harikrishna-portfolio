@@ -1,65 +1,87 @@
-import Image from "next/image";
+import Link from "next/link";
+import data from "@/data/portfolio.json";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <main className="min-h-screen pt-32 pb-24 px-6 md:px-0">
+      <div className="max-w-[720px] mx-auto">
+
+        {/* Hero Section */}
+        <section className="mb-20">
+          <h1 className="text-4xl md:text-5xl mb-6 font-sans tracking-tight text-gray-900 leading-[1.1] font-bold">
+            {data.name}
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-2xl md:text-3xl text-gray-600 font-sans mb-10 leading-relaxed">
+            {data.positioning}
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+          <p className="text-sm font-sans text-gray-400 uppercase tracking-[0.2em] mb-12">
+            Azure • Databricks • SQL • AI Platforms
+          </p>
+          <div className="flex flex-wrap gap-6">
+            <Link
+              href="/projects"
+              className="px-8 py-3 bg-gray-900 text-white rounded-md font-sans text-sm font-semibold hover:bg-gray-800 transition-all shadow-sm"
+            >
+              View Projects
+            </Link>
+            <Link
+              href="/resume"
+              className="px-8 py-3 border border-gray-200 text-gray-900 rounded-md font-sans text-sm font-semibold hover:bg-gray-50 transition-all"
+            >
+              View Resume
+            </Link>
+          </div>
+        </section>
+
+        {/* Narrative Summary */}
+        <section className="mb-24 prose prose-gray prose-lg max-w-none">
+          <p className="text-gray-800 leading-relaxed font-serif text-xl border-l-4 border-gray-100 pl-8 py-2">
+            {data.summary}
+          </p>
+          <div className="mt-12 text-gray-700 leading-relaxed space-y-6">
+            <p>
+              I work on problems where systems correctness is paramount. In my experience at CIBC and Walmart Canada, I've seen how critical it is to bridge the gap between technical data silos and the actual business workflows they are meant to support.
+            </p>
+            <p>
+              Whether it's preparing enterprise data platforms for AI/ML integration or ensuring SQL-driven reconciliation frameworks meet regulatory standards, I focus on building reliable, auditable, and scalable systems.
+            </p>
+          </div>
+        </section>
+
+        {/* Focus Areas */}
+        <section className="mb-24 grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="group">
+            <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 group-hover:text-gray-900 transition-colors">Platform Readiness</h3>
+            <p className="text-sm text-gray-600 leading-relaxed font-sans">
+              Translating business workflows into scalable data & AI platform solutions.
+            </p>
+          </div>
+          <div className="group">
+            <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 group-hover:text-gray-900 transition-colors">Data Governance</h3>
+            <p className="text-sm text-gray-600 leading-relaxed font-sans">
+              Ensuring compliance and system correctness in highly regulated environments.
+            </p>
+          </div>
+          <div className="group">
+            <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 group-hover:text-gray-900 transition-colors">Systems Thinking</h3>
+            <p className="text-sm text-gray-600 leading-relaxed font-sans">
+              Navigating ambiguity and real-world constraints to deliver operational excellence.
+            </p>
+          </div>
+        </section>
+
+        {/* Footer */}
+        <footer className="pt-16 border-t border-gray-100 flex flex-col md:flex-row md:justify-between items-center">
+          <p className="text-sm text-gray-400 font-sans mb-4 md:mb-0">
+            {data.name} &bull; {data.location}
+          </p>
+          <div className="flex gap-8 text-sm font-sans text-gray-400">
+            <a href={data.socials.linkedin} target="_blank" className="hover:text-gray-900 transition-colors">LinkedIn</a>
+            <a href={`mailto:${data.socials.email}`} className="hover:text-gray-900 transition-colors">Email</a>
+          </div>
+        </footer>
+
+      </div>
+    </main>
   );
 }

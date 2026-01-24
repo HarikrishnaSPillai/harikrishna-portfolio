@@ -1,0 +1,127 @@
+{
+  "name": "Harikrishna Sureshkumar Pillai",
+  "location": "Mississauga, ON",
+  "role": "Business Systems Analyst",
+  "specialization": "AI & Data Platforms",
+  "positioning": "I work at the intersection of business workflows, data platforms, and AI systems in regulated environments.",
+  "socials": {
+    "linkedin": "https://linkedin.com/in/harikrishnapillai",
+    "email": "harikrishna.pillai@example.com"
+  },
+  "summary": "Senior Business Systems Analyst with a focus on enterprise data platforms and AI/ML readiness. I specialize in translating complex business workflows into scalable data solutions within highly regulated financial services. My approach emphasizes system correctness, data governance, and cross-functional delivery.",
+  "about": {
+    "philosophy": "I am energized by problems that require both technical precision and strategic clarity. In regulated environments, 'good enough' is never enough—systems must be correct, auditable, and scalable. I like to work at the edge of emerging technology (like AI readiness) while maintaining the grounded stability that enterprise operations demand.",
+    "howIWork": "I believe in systems thinking. Whether it's a SQL optimization or a platform migration, I start with the 'why' and ensure the technical implementation serves the business goal without compromising on compliance or data integrity."
+  },
+  "experience": [
+    {
+      "company": "CIBC",
+      "role": "Business Systems Analyst",
+      "period": "2022 – Present",
+      "narrative": "At CIBC, I lead the analysis and delivery of enterprise data and AI readiness initiatives. Working within Capital Markets and Wealth Management, I bridge the gap between technical data engineering and executive business requirements.",
+      "bullets": [
+        "Coordinated with stakeholders to define platform requirements for Azure-based data solutions.",
+        "Performed SQL-based analysis to validate data quality for downstream ML applications.",
+        "Facilitated Databricks integration to enhance processing for large-scale financial datasets.",
+        "Managed regulatory compliance communications between business and engineering teams."
+      ]
+    },
+    {
+      "company": "Walmart Canada",
+      "role": "Business Systems Analyst (Enterprise Operations)",
+      "period": "2020 – 2022",
+      "narrative": "During my tenure at Walmart Canada, I focused on operations at scale, implementing metrics-driven execution to optimize process flows within enterprise systems.",
+      "bullets": [
+        "Optimized process workflows for large-scale retail operations using data-driven insights.",
+        "Led cross-functional teams to implement system enhancements that improved operational throughput.",
+        "Developed automated reporting tools to track enterprise-level KPIs and performance metrics.",
+        "Enhanced data integrity across supply chain and logistics platforms through rigorous analysis."
+      ]
+    },
+    {
+      "company": "BSC Corp",
+      "role": "Business Systems Analyst",
+      "period": "2018 – 2020",
+      "narrative": "Managed the lifecycle of data platform enhancements and business system migrations for core financial operations.",
+      "bullets": [
+        "Developed comprehensive SQL queries to support executive decision-making.",
+        "Oversaw transition of legacy systems to cloud-ready architectures.",
+        "Collaborated on automated data validation workflows for regulatory reporting.",
+        "Identified system requirements for AI-driven process optimizations."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "AI-Assisted Operations Insights",
+      "problem": "Raw enterprise data lacked the structure and quality required for reliable AI-driven forecasting.",
+      "approach": "Led a data readiness assessment to identify gaps in existing silos and implemented SQL-based validation frameworks.",
+      "constraints": "Strict data privacy regulations and legacy infrastructure limitations.",
+      "outcome": "Established a foundation for AI readiness, reducing data cleaning time by 40% for future ML initiatives."
+    },
+    {
+      "title": "Enterprise Metrics & Reconciliation Framework",
+      "problem": "Disparate reporting across business units led to data inconsistencies in executive dashboards.",
+      "approach": "Designed a centralized reconciliation engine using Azure Synapse and SQL to unify metrics across platforms.",
+      "constraints": "High-volume transactional data requiring near real-time accuracy.",
+      "outcome": "Improved data accuracy by 99% and provided a single source of truth for cross-functional leadership."
+    },
+    {
+      "title": "Data Platform Readiness Assessment",
+      "problem": "The migration to Databricks required a deep understanding of existing dependencies and data governance impacts.",
+      "approach": "Conducted stakeholder workshops and technical audits to map complex business workflows to cloud-native architectures.",
+      "constraints": "Tight regulatory timelines and multi-departmental dependency maps.",
+      "outcome": "Delivered a comprehensive migration roadmap that ensured zero downtime and full regulatory compliance."
+    }
+  ],
+  "skills": {
+    "Data & Analysis": [
+      "SQL (T-SQL, PL/SQL)",
+      "Databricks",
+      "Data Governance",
+      "ETL Processes",
+      "Readiness Assessment"
+    ],
+    "Cloud & Platforms": [
+      "Azure (Data Lake, Synapse)",
+      "Enterprise Data Platforms",
+      "Microsoft 365",
+      "Platform Migration"
+    ],
+    "AI & Systems Thinking": [
+      "AI/ML Readiness",
+      "Systems Thinking",
+      "Workflow Automation",
+      "Scalable Architectures"
+    ],
+    "Delivery & Communication": [
+      "Stakeholder Coordination",
+      "Requirement Engineering",
+      "Agile Delivery",
+      "Technical Documentation"
+    ]
+  },
+  "certifications": [
+    {
+      "category": "Cloud & Data",
+      "items": [
+        "Microsoft Certified: Azure Data Engineer Associate",
+        "SQL for Data Science"
+      ]
+    },
+    {
+      "category": "AI & Analytics",
+      "items": [
+        "AI Fundamentals",
+        "Advanced Data Analytics"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Advanced Diploma in Computer Systems Technology",
+      "institution": "Sheridan College",
+      "year": "2018"
+    }
+  ]
+}
