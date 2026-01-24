@@ -110,11 +110,28 @@
       "items": [
         {
           "name": "Microsoft Certified: Azure Data Engineer Associate",
-          "issuer": "Microsoft"
+          "issuer": "Microsoft",
+          "logo": "microsoft"
+        },
+        {
+          "name": "Academy Accreditation - Databricks Fundamentals",
+          "issuer": "Databricks",
+          "logo": "databricks"
+        },
+        {
+          "name": "Microsoft Certified: Azure Data Fundamentals",
+          "issuer": "Microsoft",
+          "logo": "microsoft"
+        },
+        {
+          "name": "MySQL for Data Analytics and Business Intelligence",
+          "issuer": "Udemy",
+          "logo": "udemy"
         },
         {
           "name": "SQL for Data Science",
-          "issuer": "UC Davis"
+          "issuer": "UC Davis",
+          "logo": "university"
         }
       ]
     },
@@ -122,12 +139,14 @@
       "category": "AI & Analytics",
       "items": [
         {
-          "name": "AI Fundamentals",
-          "issuer": "Microsoft"
+          "name": "Microsoft Certified: Azure AI Fundamentals",
+          "issuer": "Microsoft",
+          "logo": "microsoft"
         },
         {
           "name": "Advanced Data Analytics",
-          "issuer": "Google"
+          "issuer": "Google",
+          "logo": "google"
         }
       ]
     }
