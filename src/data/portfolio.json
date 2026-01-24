@@ -111,27 +111,42 @@
         {
           "name": "Microsoft Certified: Azure Data Engineer Associate",
           "issuer": "Microsoft",
-          "logo": "microsoft"
+          "logo": "microsoft",
+          "credentialId": "H4Y7-2K8L",
+          "issuedDate": "Mar 2023",
+          "expiryDate": "Mar 2024"
         },
         {
           "name": "Academy Accreditation - Databricks Fundamentals",
           "issuer": "Databricks",
-          "logo": "databricks"
+          "logo": "databricks",
+          "credentialId": "DB-99210",
+          "issuedDate": "Jan 2023",
+          "expiryDate": ""
         },
         {
           "name": "Microsoft Certified: Azure Data Fundamentals",
           "issuer": "Microsoft",
-          "logo": "microsoft"
+          "logo": "microsoft",
+          "credentialId": "I1V3-8P5M",
+          "issuedDate": "Nov 2022",
+          "expiryDate": ""
         },
         {
           "name": "MySQL for Data Analytics and Business Intelligence",
           "issuer": "Udemy",
-          "logo": "udemy"
+          "logo": "udemy",
+          "credentialId": "UC-0a56f...",
+          "issuedDate": "Aug 2022",
+          "expiryDate": ""
         },
         {
           "name": "SQL for Data Science",
           "issuer": "UC Davis",
-          "logo": "university"
+          "logo": "university",
+          "credentialId": "COURSERA-UC-99",
+          "issuedDate": "Jun 2022",
+          "expiryDate": ""
         }
       ]
     },
@@ -141,12 +156,18 @@
         {
           "name": "Microsoft Certified: Azure AI Fundamentals",
           "issuer": "Microsoft",
-          "logo": "microsoft"
+          "logo": "microsoft",
+          "credentialId": "A9B2-5X1Z",
+          "issuedDate": "Feb 2023",
+          "expiryDate": ""
         },
         {
           "name": "Advanced Data Analytics",
           "issuer": "Google",
-          "logo": "google"
+          "logo": "google",
+          "credentialId": "G-CERT-4412",
+          "issuedDate": "Dec 2022",
+          "expiryDate": ""
         }
       ]
     }

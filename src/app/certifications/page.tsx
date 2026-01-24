@@ -69,17 +69,37 @@ export default function Certifications() {
                                 {certGroup.items.map((cert: any, cIdx: number) => (
                                     <div
                                         key={cIdx}
-                                        className="flex flex-col p-5 bg-white border border-gray-100/60 rounded-lg hover:border-gray-900 hover:shadow-sm transition-all bg-white/40 group relative overflow-hidden"
+                                        className="flex flex-col p-5 bg-white border border-gray-100/60 rounded-lg hover:border-gray-900 transition-all bg-white/40 group relative min-h-[160px]"
                                     >
                                         <div className="flex justify-between items-start mb-4">
                                             <Logo type={cert.logo} />
                                         </div>
-                                        <span className="text-gray-900 font-sans font-bold text-[15px] leading-snug mb-3">
-                                            {cert.name}
-                                        </span>
-                                        <span className="mono-meta text-[10px] uppercase tracking-widest text-gray-400 mt-auto">
-                                            {cert.issuer}
-                                        </span>
+                                        <div className="flex flex-col h-full">
+                                            <span className="text-gray-900 font-sans font-bold text-[15px] leading-snug mb-1">
+                                                {cert.name}
+                                            </span>
+                                            <span className="mono-meta text-[10px] uppercase tracking-widest text-gray-400 mb-4">
+                                                {cert.issuer}
+                                            </span>
+
+                                            {/* Hover Details */}
+                                            <div className="mt-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                                <div className="pt-3 border-t border-gray-50 space-y-1.5">
+                                                    <p className="mono-meta text-[9px] text-gray-400">
+                                                        <span className="text-gray-300 mr-2">ID:</span> {cert.credentialId}
+                                                    </p>
+                                                    <p className="mono-meta text-[9px] text-gray-400">
+                                                        <span className="text-gray-300 mr-2">ISSUED:</span> {cert.issuedDate}
+                                                        {cert.expiryDate && (
+                                                            <>
+                                                                <span className="mx-2 text-gray-200">/</span>
+                                                                <span className="text-gray-300 mr-1">EXPIRES:</span> {cert.expiryDate}
+                                                            </>
+                                                        )}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 ))}
                             </div>
