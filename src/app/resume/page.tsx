@@ -3,7 +3,7 @@ import data from "@/data/portfolio.json";
 export default function Resume() {
     return (
         <main className="min-h-screen pt-32 pb-24 px-6 md:px-0">
-            <div className="max-w-[720px] mx-auto">
+            <div className="max-w-[900px] mx-auto">
                 <header className="mb-20 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
                     <div>
                         <p className="label-caps mb-4">Documentation</p>

@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Projects() {
     return (
         <main className="min-h-screen pt-32 pb-24 px-6 md:px-0">
-            <div className="max-w-[720px] mx-auto">
+            <div className="max-w-[900px] mx-auto">
                 <header className="mb-16 text-center md:text-left">
                     <p className="label-caps mb-4">Portfolio</p>
                     <h1 className="text-3xl md:text-4xl font-sans font-bold text-gray-900 mb-4 tracking-tight">Projects & Initiatives</h1>

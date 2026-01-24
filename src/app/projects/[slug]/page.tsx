@@ -16,7 +16,7 @@ export default async function ProjectDetail({ params }: PageProps) {
 
     return (
         <main className="min-h-screen pt-32 pb-24 px-6 md:px-0 bg-[#f9f7f2]">
-            <div className="max-w-[720px] mx-auto">
+            <div className="max-w-[900px] mx-auto">
                 <nav className="mb-12">
                     <Link
                         href="/projects"

@@ -4,7 +4,7 @@ import data from "@/data/portfolio.json";
 export default function Home() {
   return (
     <main className="min-h-screen pt-40 pb-24 px-6 md:px-0">
-      <div className="max-w-[720px] mx-auto">
+      <div className="max-w-[900px] mx-auto">
 
         {/* Hero Section */}
         <section className="mb-24">
@@ -12,7 +12,7 @@ export default function Home() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl mb-8 font-sans tracking-tight text-gray-900 leading-[1.05] font-bold">
             {data.name}
           </h1>
-          <p className="text-2xl md:text-3xl text-gray-600 font-sans mb-12 leading-[1.4] max-w-[640px]">
+          <p className="text-2xl md:text-3xl text-gray-600 font-sans mb-12 leading-[1.4] max-w-[800px]">
             {data.positioning}
           </p>
           <div className="flex items-center gap-6 mb-16">

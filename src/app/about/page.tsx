@@ -3,7 +3,7 @@ import data from "@/data/portfolio.json";
 export default function About() {
     return (
         <main className="min-h-screen pt-32 pb-24 px-6 md:px-0">
-            <div className="max-w-[720px] mx-auto">
+            <div className="max-w-[900px] mx-auto">
                 <header className="mb-20">
                     <p className="label-caps mb-4">Background</p>
                     <h1 className="text-3xl md:text-4xl font-sans font-bold text-gray-900 mb-6 tracking-tight">About</h1>
