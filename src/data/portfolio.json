@@ -108,15 +108,27 @@
     {
       "category": "Cloud & Data",
       "items": [
-        "Microsoft Certified: Azure Data Engineer Associate",
-        "SQL for Data Science"
+        {
+          "name": "Microsoft Certified: Azure Data Engineer Associate",
+          "issuer": "Microsoft"
+        },
+        {
+          "name": "SQL for Data Science",
+          "issuer": "UC Davis"
+        }
       ]
     },
     {
       "category": "AI & Analytics",
       "items": [
-        "AI Fundamentals",
-        "Advanced Data Analytics"
+        {
+          "name": "AI Fundamentals",
+          "issuer": "Microsoft"
+        },
+        {
+          "name": "Advanced Data Analytics",
+          "issuer": "Google"
+        }
       ]
     }
   ],

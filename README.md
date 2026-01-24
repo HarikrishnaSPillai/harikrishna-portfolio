@@ -34,6 +34,18 @@ An editorial-style, multi-section portfolio website built with Next.js and Tailw
    ```
    Open [http://localhost:3000](http://localhost:3000) to see the result.
 
+## GitHub Deployment
+
+To make this available as a GitHub repository, follow these steps:
+
+1. **Create a new repository** on GitHub named `harikrishna-portfolio`.
+2. **Push the local repository**:
+   ```bash
+   git remote add origin https://github.com/YOUR_GITHUB_USERNAME/harikrishna-portfolio.git
+   git branch -M main
+   git push -u origin main
+   ```
+
 ## Deployment
 
 ### Vercel (Preferred)

@@ -1,5 +1,10 @@
 import data from "@/data/portfolio.json";
 
+interface CertItem {
+    name: string;
+    issuer: string;
+}
+
 export default function Certifications() {
     return (
         <main className="min-h-screen pt-32 pb-24 px-6 md:px-0">
@@ -7,29 +12,32 @@ export default function Certifications() {
                 <header className="mb-20">
                     <p className="label-caps mb-4">Verification</p>
                     <h1 className="text-3xl md:text-4xl font-sans font-bold text-gray-900 mb-6 tracking-tight">Credentials</h1>
-                    <p className="text-lg text-gray-500 font-sans leading-relaxed max-w-[600px]">
+                    <p className="text-lg text-gray-500 font-sans leading-relaxed max-w-[640px]">
                         Professional validation in cloud infrastructure, data engineering, and artificial intelligence.
                     </p>
                 </header>
 
-                <section className="space-y-20">
+                <section className="space-y-16">
                     {data.certifications.map((certGroup, idx) => (
                         <div key={idx}>
-                            <h2 className="label-caps mb-10 border-b border-gray-100 pb-4">
+                            <h2 className="label-caps mb-8 border-b border-gray-100 pb-4">
                                 {certGroup.category}
                             </h2>
-                            <ul className="grid grid-cols-1 gap-6">
-                                {certGroup.items.map((cert, cIdx) => (
-                                    <li key={cIdx} className="group flex justify-between items-center p-8 bg-white border border-gray-100 rounded hover:border-gray-900 hover:shadow-sm transition-all">
-                                        <span className="text-gray-900 font-sans font-bold text-[18px] tracking-tight">{cert}</span>
-                                        <span className="text-gray-300 group-hover:text-gray-900 transition-colors">
-                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M5 15L15 5M15 5H7.5M15 5V12.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                            </svg>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                                {certGroup.items.map((cert: any, cIdx: number) => (
+                                    <div
+                                        key={cIdx}
+                                        className="flex flex-col p-5 bg-white border border-gray-100/60 rounded-lg hover:border-gray-900 hover:shadow-sm transition-all bg-white/40"
+                                    >
+                                        <span className="text-gray-900 font-sans font-bold text-[15px] leading-snug mb-3">
+                                            {cert.name}
                                         </span>
-                                    </li>
+                                        <span className="mono-meta text-[10px] uppercase tracking-widest text-gray-400 mt-auto">
+                                            {cert.issuer}
+                                        </span>
+                                    </div>
                                 ))}
-                            </ul>
+                            </div>
                         </div>
                     ))}
                 </section>
@@ -52,7 +60,7 @@ export default function Certifications() {
                 </section>
 
                 {/* Footer */}
-                <footer className="pt-24 mt-32 border-t border-gray-100 flex flex-col md:flex-row md:justify-between items-center">
+                <footer className="pt-24 mt-32 border-t border-gray-100 flex flex-col md:flex-row md:justify-between items-center text-center md:text-left">
                     <p className="text-sm text-gray-400 font-sans mb-4 md:mb-0">
                         {data.name} &bull; {data.location}
                     </p>
