@@ -21,12 +21,95 @@ export default function Resume() {
                     </a>
                 </header>
 
-                <section className="bg-white rounded border border-gray-100 overflow-hidden aspect-[1/1.4] relative group shadow-sm">
-                    <iframe
-                        src="/resume.pdf"
-                        className="w-full h-full border-none"
-                        title="Harikrishna Pillai Resume"
-                    />
+                <section className="bg-white rounded p-8 md:p-12 border border-gray-100 shadow-sm relative group overflow-hidden">
+                    <div className="max-w-full mx-auto font-sans text-gray-900">
+                        {/* Header Section */}
+                        <div className="border-b-2 border-gray-900 pb-8 mb-12">
+                            <h2 className="text-3xl font-bold tracking-tighter mb-2 uppercase">{data.name}</h2>
+                            <p className="text-gray-500 font-medium mb-4">{data.role} &bull; {data.specialization}</p>
+                            <div className="flex flex-wrap gap-x-6 gap-y-2 mono-meta text-[10px] text-gray-400 uppercase tracking-widest">
+                                <span>{data.location}</span>
+                                <span>{data.socials.linkedin.replace('https://', '')}</span>
+                                <span>{data.socials.email}</span>
+                            </div>
+                        </div>
+
+                        {/* Summary Section */}
+                        <div className="mb-12">
+                            <h3 className="label-caps text-gray-400 mb-4 border-b border-gray-100 pb-2">Professional Summary</h3>
+                            <p className="text-[15px] leading-relaxed text-gray-700 font-serif">
+                                {data.summary}
+                            </p>
+                        </div>
+
+                        {/* Experience Section */}
+                        <div className="mb-12">
+                            <h3 className="label-caps text-gray-400 mb-6 border-b border-gray-100 pb-2">Experience</h3>
+                            <div className="space-y-10">
+                                {data.experience.map((exp, idx) => (
+                                    <div key={idx}>
+                                        <div className="flex justify-between items-baseline mb-2">
+                                            <h4 className="font-bold text-gray-900">{exp.company}</h4>
+                                            <span className="mono-meta text-[10px] text-gray-400 uppercase">{exp.period}</span>
+                                        </div>
+                                        <p className="text-sm font-semibold text-gray-600 mb-3">{exp.role}</p>
+                                        <ul className="space-y-2">
+                                            {exp.bullets.map((bullet, bIdx) => (
+                                                <li key={bIdx} className="text-sm text-gray-600 flex gap-3 leading-relaxed">
+                                                    <span className="text-gray-300 flex-shrink-0 mt-1">•</span>
+                                                    <span>{bullet}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Skills Section */}
+                        <div className="mb-12">
+                            <h3 className="label-caps text-gray-400 mb-6 border-b border-gray-100 pb-2">Core Competencies</h3>
+                            <div className="grid grid-cols-2 gap-x-12 gap-y-6">
+                                {Object.entries(data.skills).map(([category, items], idx) => (
+                                    <div key={idx}>
+                                        <h4 className="mono-meta text-[9px] uppercase tracking-[0.2em] text-gray-400 mb-3">{category}</h4>
+                                        <p className="text-sm text-gray-700 font-serif">
+                                            {items.join(', ')}
+                                        </p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Education & Certs - 2 column */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                            <section>
+                                <h3 className="label-caps text-gray-400 mb-6 border-b border-gray-100 pb-2">Education</h3>
+                                {data.education.map((edu, idx) => (
+                                    <div key={idx}>
+                                        <h4 className="font-bold text-sm text-gray-900">{edu.degree}</h4>
+                                        <p className="text-xs text-gray-500 mt-1">{edu.institution}, {edu.year}</p>
+                                    </div>
+                                ))}
+                            </section>
+
+                            <section>
+                                <h3 className="label-caps text-gray-400 mb-6 border-b border-gray-100 pb-2">Active Credentials</h3>
+                                <div className="space-y-4">
+                                    {data.certifications.flatMap(g => g.items).slice(0, 4).map((cert, idx) => (
+                                        <div key={idx}>
+                                            <h4 className="font-bold text-[13px] text-gray-900 leading-tight">{cert.name}</h4>
+                                            <div className="flex gap-2 mono-meta text-[9px] text-gray-400 uppercase mt-1">
+                                                <span>{cert.issuer}</span>
+                                                <span>&bull;</span>
+                                                <span>ID: {cert.credentialId.split('-')[0]}...</span>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </section>
+                        </div>
+                    </div>
                 </section>
 
                 {/* Footer */}
