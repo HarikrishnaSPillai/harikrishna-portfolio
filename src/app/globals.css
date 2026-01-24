@@ -2,13 +2,17 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --color-brand-primary: #00458b; /* Subtle CIBC-ish blue */
-  --color-text-main: #1a1a1a;
+  --color-brand-primary: #00458b;
+  --color-text-main: #2d2d2d;
+  /* Charcoal */
   --color-text-muted: #6b6b6b;
-  --color-bg-page: #fcfcfc;
-  
-  --font-serif: "Georgia", "Cambria", "Times New Roman", "Times", serif;
-  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --color-bg-page: #f9f7f2;
+  /* Warmer off-white (paper-like) */
+  --color-border-subtle: rgba(45, 45, 45, 0.08);
+
+  --font-serif: var(--font-source-serif), "Georgia", "Cambria", serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-mono), "Courier New", monospace;
 }
 
 :root {
@@ -20,18 +24,47 @@ body {
   background-color: var(--color-bg-page);
   color: var(--color-text-main);
   font-family: var(--font-serif);
-  line-height: 1.6;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-sans);
   font-weight: 700;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.015em;
+  color: #1a1a1a;
+}
+
+.label-caps {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #888;
+}
+
+.mono-meta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: -0.01em;
 }
 
 .prose {
   max-width: 720px;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* Typographic Divider */
+.divider {
+  height: 1px;
+  background: var(--color-border-subtle);
+  border: none;
+  margin: 3rem 0;
 }

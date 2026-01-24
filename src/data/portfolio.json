@@ -54,6 +54,7 @@
   "projects": [
     {
       "title": "AI-Assisted Operations Insights",
+      "oneLine": "Optimizing enterprise forecasting through data readiness.",
       "problem": "Raw enterprise data lacked the structure and quality required for reliable AI-driven forecasting.",
       "approach": "Led a data readiness assessment to identify gaps in existing silos and implemented SQL-based validation frameworks.",
       "constraints": "Strict data privacy regulations and legacy infrastructure limitations.",
@@ -61,6 +62,7 @@
     },
     {
       "title": "Enterprise Metrics & Reconciliation Framework",
+      "oneLine": "Unifying disparate data streams for executive clarity.",
       "problem": "Disparate reporting across business units led to data inconsistencies in executive dashboards.",
       "approach": "Designed a centralized reconciliation engine using Azure Synapse and SQL to unify metrics across platforms.",
       "constraints": "High-volume transactional data requiring near real-time accuracy.",
@@ -68,6 +70,7 @@
     },
     {
       "title": "Data Platform Readiness Assessment",
+      "oneLine": "Architecting the roadmap for cloud-native migration.",
       "problem": "The migration to Databricks required a deep understanding of existing dependencies and data governance impacts.",
       "approach": "Conducted stakeholder workshops and technical audits to map complex business workflows to cloud-native architectures.",
       "constraints": "Tight regulatory timelines and multi-departmental dependency maps.",

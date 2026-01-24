@@ -4,41 +4,43 @@ export default function Experience() {
     return (
         <main className="min-h-screen pt-32 pb-24 px-6 md:px-0">
             <div className="max-w-[720px] mx-auto">
-                <header className="mb-16">
-                    <h1 className="text-3xl font-sans font-bold text-gray-900 mb-4 tracking-tight">Experience</h1>
-                    <p className="text-lg text-gray-500 font-sans leading-relaxed">
-                        A track record of delivering technical clarity and operational excellence in complex, regulated environments.
+                <header className="mb-20">
+                    <p className="label-caps mb-4">Professional History</p>
+                    <h1 className="text-3xl md:text-4xl font-sans font-bold text-gray-900 mb-6 tracking-tight">Experience</h1>
+                    <p className="text-lg text-gray-500 font-sans leading-relaxed max-w-[600px]">
+                        A track record of technical clarity and operational excellence in complex, regulated environments.
                     </p>
                 </header>
 
                 <section className="space-y-24">
                     {data.experience.map((exp, idx) => (
                         <div key={idx} className="relative">
-                            <div className="flex flex-col md:flex-row md:justify-between md:items-baseline mb-6">
+                            <div className="flex flex-col md:flex-row md:justify-between md:items-baseline mb-8">
                                 <div>
-                                    <h2 className="text-2xl font-sans font-bold text-gray-900">{exp.company}</h2>
-                                    <p className="text-gray-500 font-sans mt-1">{exp.role}</p>
+                                    <h2 className="text-2xl font-sans font-bold text-gray-900 tracking-tight">{exp.company}</h2>
+                                    <p className="text-gray-500 font-sans mt-1 text-base">{exp.role}</p>
                                 </div>
-                                <span className="text-sm font-sans text-gray-400 font-medium tabular-nums mt-2 md:mt-0">
+                                <span className="mono-meta text-gray-400 font-medium mt-3 md:mt-0 px-2 py-0.5 border border-gray-100 rounded bg-white/50">
                                     {exp.period}
                                 </span>
                             </div>
 
                             <div className="prose prose-gray prose-lg max-w-none">
-                                <p className="text-gray-800 leading-relaxed font-sans mb-8">
+                                <p className="text-gray-800 leading-relaxed font-sans mb-10 text-[18px]">
                                     {exp.narrative}
                                 </p>
 
-                                <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-6">Key Contributions</h3>
-                                <ul className="space-y-4 list-none p-0">
+                                <h3 className="label-caps mb-8">Selected Contributions</h3>
+                                <ul className="space-y-5 list-none p-0">
                                     {exp.bullets.map((bullet, bIdx) => (
-                                        <li key={bIdx} className="flex gap-4 items-start text-gray-700 text-[17px] leading-relaxed">
-                                            <span className="mt-2.5 w-1.5 h-1.5 rounded-full bg-gray-200 shrink-0" />
+                                        <li key={bIdx} className="flex gap-5 items-start text-gray-700 text-[17px] leading-relaxed group">
+                                            <span className="mt-3 w-1.5 h-1.5 rounded-full bg-gray-200 shrink-0 group-hover:bg-brand-primary transition-colors" />
                                             {bullet}
                                         </li>
                                     ))}
                                 </ul>
                             </div>
+                            {idx < data.experience.length - 1 && <hr className="divider" />}
                         </div>
                     ))}
                 </section>
