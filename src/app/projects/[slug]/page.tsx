@@ -51,16 +51,27 @@ export default async function ProjectDetail({ params }: PageProps) {
                         </p>
                     </section>
 
+                    <section>
+                        <h2 className="label-caps mb-6 text-gray-400">Technical Stack</h2>
+                        <div className="flex flex-wrap gap-4">
+                            {(project as any).skills?.map((skill: string, sIdx: number) => (
+                                <span key={sIdx} className="mono-meta text-[11px] px-3 py-1 bg-white border border-gray-100 rounded text-gray-500 uppercase tracking-widest">
+                                    {skill}
+                                </span>
+                            ))}
+                        </div>
+                    </section>
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 pt-8 border-t border-gray-100">
                         <section>
-                            <h2 className="label-caps mb-6 text-gray-400">Constraints</h2>
+                            <h2 className="label-caps mb-6 text-gray-400">Challenges & Constraints</h2>
                             <p className="text-base text-gray-600 font-serif leading-relaxed">
                                 {project.constraints}
                             </p>
                         </section>
 
                         <section>
-                            <h2 className="label-caps mb-6 text-gray-400">Outcome</h2>
+                            <h2 className="label-caps mb-6 text-gray-400">Outcome & Learnings</h2>
                             <p className="text-base text-gray-600 font-serif leading-relaxed">
                                 {project.outcome}
                             </p>

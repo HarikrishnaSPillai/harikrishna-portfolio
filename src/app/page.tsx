@@ -52,7 +52,7 @@ export default function Home() {
           </p>
           <div className="mt-12 text-gray-700 leading-relaxed space-y-8 text-[19px] font-sans">
             <p>
-              I work on problems where systems correctness is paramount. In my experience at CIBC and Walmart Canada, I've seen how critical it is to bridge the gap between technical data silos and the actual business workflows they are meant to support.
+              I work on problems where systems correctness is paramount. In my experience at CIBC and BSC Corp, I've seen how critical it is to bridge the gap between technical data silos and the actual business workflows they are meant to support.
             </p>
             <p>
               Whether it's preparing enterprise data platforms for AI/ML integration or ensuring SQL-driven reconciliation frameworks meet regulatory standards, I focus on building reliable, auditable, and scalable systems.

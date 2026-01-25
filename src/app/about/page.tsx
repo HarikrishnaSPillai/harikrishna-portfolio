@@ -39,7 +39,7 @@ export default function About() {
 
                         <div className="pt-12 border-t border-gray-100">
                             <p className="text-gray-500 text-sm italic">
-                                Currently based in Mississauga, ON. Working at the intersection of business and technical systems.
+                                Currently based in {data.location}. Working at the intersection of business and technical systems.
                             </p>
                         </div>
                     </div>

@@ -101,8 +101,12 @@ export default function Resume() {
                                             <h4 className="font-bold text-[13px] text-gray-900 leading-tight">{cert.name}</h4>
                                             <div className="flex gap-2 mono-meta text-[9px] text-gray-400 uppercase mt-1">
                                                 <span>{cert.issuer}</span>
-                                                <span>&bull;</span>
-                                                <span>ID: {cert.credentialId.split('-')[0]}...</span>
+                                                {cert.credentialId && (
+                                                    <>
+                                                        <span>&bull;</span>
+                                                        <span>ID: {cert.credentialId.split('-')[0]}...</span>
+                                                    </>
+                                                )}
                                             </div>
                                         </div>
                                     ))}

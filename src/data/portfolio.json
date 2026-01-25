@@ -1,14 +1,14 @@
 {
   "name": "Harikrishna Sureshkumar Pillai",
-  "location": "Mississauga, ON",
+  "location": "Mississauga, ON, Canada",
   "role": "Business Systems Analyst",
   "specialization": "AI & Data Platforms",
   "positioning": "I work at the intersection of business workflows, data platforms, and AI systems in regulated environments.",
   "socials": {
     "linkedin": "https://linkedin.com/in/harikrishnapillai",
-    "email": "harikrishna.pillai@example.com"
+    "email": "spillaiharikrishna@gmail.com"
   },
-  "summary": "Senior Business Systems Analyst with a focus on enterprise data platforms and AI/ML readiness. I specialize in translating complex business workflows into scalable data solutions within highly regulated financial services. My approach emphasizes system correctness, data governance, and cross-functional delivery.",
+  "summary": "Business Systems Analyst with 5+ years of experience supporting enterprise data and platform initiatives in regulated financial environments. Experienced in translating business workflows and operational needs into clear, scalable requirements for cloud-based data and analytics platforms across Azure and Databricks. Regularly partners with engineering, data, risk, and compliance teams to ensure solutions are reliable, auditable, and fit for production use. Increasingly involved in initiatives where data products and platforms are designed to support AI and advanced analytics use cases, with a focus on data readiness, governance, and responsible usage.",
   "about": {
     "philosophy": "I am energized by problems that require both technical precision and strategic clarity. In regulated environments, 'good enough' is never enough—systems must be correct, auditable, and scalable. I like to work at the edge of emerging technology (like AI readiness) while maintaining the grounded stability that enterprise operations demand.",
     "howIWork": "I believe in systems thinking. Whether it's a SQL optimization or a platform migration, I start with the 'why' and ensure the technical implementation serves the business goal without compromising on compliance or data integrity."
@@ -16,148 +16,152 @@
   "experience": [
     {
       "company": "CIBC",
-      "role": "Business Systems Analyst",
-      "period": "2022 – Present",
-      "narrative": "At CIBC, I lead the analysis and delivery of enterprise data and AI readiness initiatives. Working within Capital Markets and Wealth Management, I bridge the gap between technical data engineering and executive business requirements.",
+      "role": "Consultant, Business System Analysis",
+      "period": "May 2024 – Present",
+      "narrative": "At CIBC, I lead the analysis and delivery of enterprise data and AI readiness initiatives, coordinating priorities across Engineering, Risk, Compliance, and Business stakeholders.",
       "bullets": [
-        "Coordinated with stakeholders to define platform requirements for Azure-based data solutions.",
-        "Performed SQL-based analysis to validate data quality for downstream ML applications.",
-        "Facilitated Databricks integration to enhance processing for large-scale financial datasets.",
-        "Managed regulatory compliance communications between business and engineering teams."
+        "Analyzed large, multi-source datasets using SQL and Excel to identify performance drivers and data quality issues supporting executive decision-making.",
+        "Supported resource prioritization and roadmap planning by providing data-backed recommendations and intake estimates.",
+        "Standardized data governance and metadata practices across 15+ stakeholder groups, improving compliance and usability.",
+        "Delivered 30+ enterprise initiatives by coordinating complex requirements between technical teams and regulatory stakeholders.",
+        "Recipient of three CIBC Purpose 250 Awards for contributions to enterprise data and regulatory reporting.",
+        "Mentored and onboarded 5 new analysts, reducing ramp-up time and improving delivery consistency.",
+        "Supported QA in UAT, deployment, and test planning for cloud & AI/ML platforms.",
+        "Completed 55+ detailed project intake estimations for executive-level prioritization."
       ]
     },
     {
-      "company": "Walmart Canada",
-      "role": "Business Systems Analyst (Enterprise Operations)",
-      "period": "2020 – 2022",
-      "narrative": "During my tenure at Walmart Canada, I focused on operations at scale, implementing metrics-driven execution to optimize process flows within enterprise systems.",
+      "company": "CIBC",
+      "role": "Junior Business System Analyst",
+      "period": "April 2022 – May 2024",
+      "narrative": "Acted as a strategic liaison to deliver enterprise-scale data, cloud, and AI initiatives while supporting regulatory reviews.",
       "bullets": [
-        "Optimized process workflows for large-scale retail operations using data-driven insights.",
-        "Led cross-functional teams to implement system enhancements that improved operational throughput.",
-        "Developed automated reporting tools to track enterprise-level KPIs and performance metrics.",
-        "Enhanced data integrity across supply chain and logistics platforms through rigorous analysis."
+        "Strategic liaison between Engineering, Data Platform teams, and multiple business units for cloud and AI initiatives.",
+        "Provided executive-ready insights and documentation to support senior leadership decision-making.",
+        "Identified technology gaps across reporting workflows and enabled cloud-native solutions for improved audit readiness."
       ]
     },
     {
       "company": "BSC Corp",
-      "role": "Business Systems Analyst",
-      "period": "2018 – 2020",
-      "narrative": "Managed the lifecycle of data platform enhancements and business system migrations for core financial operations.",
+      "role": "Process Analyst",
+      "period": "August 2020 – September 2021",
+      "narrative": "Focused on product quality and operational efficiency through data-driven monitoring and audit controls.",
       "bullets": [
-        "Developed comprehensive SQL queries to support executive decision-making.",
-        "Oversaw transition of legacy systems to cloud-ready architectures.",
-        "Collaborated on automated data validation workflows for regulatory reporting.",
-        "Identified system requirements for AI-driven process optimizations."
+        "Ensured product quality by testing and troubleshooting consumer electronics to meet compliance standards.",
+        "Maintained asset and inventory management records using Microsoft Access with strict audit controls.",
+        "Improved team performance by 25% by designing Power BI dashboards and analyzing daily targets using SQL and Excel."
       ]
     }
   ],
   "projects": [
     {
-      "slug": "ai-assisted-operations",
-      "title": "AI-Assisted Operations Insights",
-      "oneLine": "Optimizing enterprise forecasting through data readiness.",
-      "problem": "Raw enterprise data lacked the structure and quality required for reliable AI-driven forecasting.",
-      "approach": "Led a data readiness assessment to identify gaps in existing silos and implemented SQL-based validation frameworks.",
-      "constraints": "Strict data privacy regulations and legacy infrastructure limitations.",
-      "outcome": "Established a foundation for AI readiness, reducing data cleaning time by 40% for future ML initiatives."
+      "slug": "azure-batch-ingestion",
+      "title": "End-to-End Batch Data Ingestion & Transformation (Azure + Databricks)",
+      "oneLine": "Building a basic but production-style data pipeline on Azure.",
+      "problem": "I built my first end-to-end batch pipeline using Azure Data Factory, ADLS Gen2, and Databricks to understand how raw data moves from ingestion to transformation in a cloud environment.",
+      "approach": "Used ADF for orchestration and Databricks for processing. Implemented defensive Spark reads to handle schema inconsistencies and restructured storage into Bronze and Silver layers.",
+      "constraints": "Challenges included understanding ADF-Databricks handoff, handling schema drift in raw data, and organizing storage layers.",
+      "outcome": "Established a 2-layer lakehouse architecture (Bronze/Silver), decoupled orchestration from processing, and successfully handled imperfect real-world data.",
+      "skills": [
+        "Azure Data Factory",
+        "ADLS Gen2",
+        "Databricks",
+        "Spark",
+        "Batch Processing"
+      ]
     },
     {
-      "slug": "enterprise-metrics-framework",
-      "title": "Enterprise Metrics & Reconciliation Framework",
-      "oneLine": "Unifying disparate data streams for executive clarity.",
-      "problem": "Disparate reporting across business units led to data inconsistencies in executive dashboards.",
-      "approach": "Designed a centralized reconciliation engine using Azure Synapse and SQL to unify metrics across platforms.",
-      "constraints": "High-volume transactional data requiring near real-time accuracy.",
-      "outcome": "Improved data accuracy by 99% and provided a single source of truth for cross-functional leadership."
+      "slug": "delta-lake-unity-catalog",
+      "title": "Bronze → Silver Delta Lake Pipeline with Unity Catalog",
+      "oneLine": "Building a scalable, governed data engineering pipeline using modern lakehouse practices.",
+      "problem": "Focused on building a production-style Bronze to Silver pipeline using Delta Lake and Unity Catalog, with governance and data quality in mind.",
+      "approach": "Implemented Delta writes with ACID properties, configured Unity Catalog for governance, and added deduplication logic during Silver transformation.",
+      "constraints": "Faced challenges with Delta Lake concepts, Unity Catalog permissions/access control, and dirty records in the Bronze layer.",
+      "outcome": "A reliable and auditable pipeline with centralized metadata management and improved data quality.",
+      "skills": [
+        "Delta Lake",
+        "Unity Catalog",
+        "Databricks",
+        "Data Governance",
+        "Azure Data Factory"
+      ]
     },
     {
-      "slug": "data-platform-readiness",
-      "title": "Data Platform Readiness Assessment",
-      "oneLine": "Architecting the roadmap for cloud-native migration.",
-      "problem": "The migration to Databricks required a deep understanding of existing dependencies and data governance impacts.",
-      "approach": "Conducted stakeholder workshops and technical audits to map complex business workflows to cloud-native architectures.",
-      "constraints": "Tight regulatory timelines and multi-departmental dependency maps.",
-      "outcome": "Delivered a comprehensive migration roadmap that ensured zero downtime and full regulatory compliance."
+      "slug": "event-driven-parameterized-pipeline",
+      "title": "Event-Driven & Secure Data Processing Pipeline",
+      "oneLine": "Building a realistic enterprise-grade, event-driven data pipeline.",
+      "problem": "Simulated an enterprise scenario where pipelines run based on data availability rather than static schedules, ensuring security and reusability.",
+      "approach": "Used ADF Get Metadata activities for event-driven triggers. Parameterized both ADF and Databricks to make notebooks reusable and secure.",
+      "constraints": "Challenges included preventing unnecessary Databricks runs, passing dynamic parameters securely, and refactoring hard-coded notebooks.",
+      "outcome": "Reduced costs through event-driven processing and improved maintainability via modular, enterprise-standard parameterization.",
+      "skills": [
+        "Event-Driven Ingestion",
+        "Secure Parameterization",
+        "Modular Notebook Design",
+        "Azure Data Factory",
+        "Databricks"
+      ]
     }
   ],
   "skills": {
-    "Data & Analysis": [
-      "SQL (T-SQL, PL/SQL)",
-      "Databricks",
-      "Data Governance",
-      "ETL Processes",
-      "Readiness Assessment"
+    "Technology & Platforms": [
+      "Azure (ADF, ADLS Gen2, IAM)",
+      "Databricks (Unity Catalog, DLT)",
+      "LLMs",
+      "SQL",
+      "Python",
+      "Prompt Engineering",
+      "R",
+      "AI/ML Platforms",
+      "REST APIs",
+      "n8n"
     ],
-    "Cloud & Platforms": [
-      "Azure (Data Lake, Synapse)",
+    "Business & Strategy": [
+      "Technology Business Development",
+      "Stakeholder Management",
+      "Technology Advisory",
+      "Solution Evaluation",
+      "Gap Analysis",
+      "Commercial Value Assessment"
+    ],
+    "Data & Governance": [
       "Enterprise Data Platforms",
-      "Microsoft 365",
-      "Platform Migration"
+      "Regulatory Reporting (OSFI, FINTRAC, EFT)",
+      "Metadata Management",
+      "Data Governance",
+      "Compliance",
+      "Responsible AI & Ethics"
     ],
-    "AI & Systems Thinking": [
-      "AI/ML Readiness",
-      "Systems Thinking",
-      "Workflow Automation",
-      "Scalable Architectures"
+    "Delivery & Execution": [
+      "Agile & Waterfall",
+      "Project Intake & Estimation",
+      "Cross-Functional Coordination",
+      "Executive Reporting"
     ],
-    "Delivery & Communication": [
-      "Stakeholder Coordination",
-      "Requirement Engineering",
-      "Agile Delivery",
-      "Technical Documentation"
+    "Tools": [
+      "Git",
+      "Confluence",
+      "Visual Studio Code",
+      "MS Suite",
+      "JIRA",
+      "Visio",
+      "ServiceNow"
+    ],
+    "Requirements & Delivery Artifacts": [
+      "User Stories",
+      "BRDs",
+      "SRDs",
+      "IRDs",
+      "STMs",
+      "Interface Agreements (IAs)"
     ]
   },
   "certifications": [
     {
-      "category": "Cloud & Data",
+      "category": "Certifications",
       "items": [
         {
-          "name": "Microsoft Certified: Azure Data Engineer Associate",
-          "issuer": "Microsoft",
-          "logo": "microsoft",
-          "credentialId": "H4Y7-2K8L",
-          "issuedDate": "Mar 2023",
-          "expiryDate": "Mar 2024"
-        },
-        {
-          "name": "Academy Accreditation - Databricks Fundamentals",
-          "issuer": "Databricks",
-          "logo": "databricks",
-          "credentialId": "DB-99210",
-          "issuedDate": "Jan 2023",
-          "expiryDate": ""
-        },
-        {
-          "name": "Microsoft Certified: Azure Data Fundamentals",
-          "issuer": "Microsoft",
-          "logo": "microsoft",
-          "credentialId": "I1V3-8P5M",
-          "issuedDate": "Nov 2022",
-          "expiryDate": ""
-        },
-        {
-          "name": "MySQL for Data Analytics and Business Intelligence",
-          "issuer": "Udemy",
-          "logo": "udemy",
-          "credentialId": "UC-0a56f...",
-          "issuedDate": "Aug 2022",
-          "expiryDate": ""
-        },
-        {
-          "name": "SQL for Data Science",
-          "issuer": "UC Davis",
-          "logo": "university",
-          "credentialId": "COURSERA-UC-99",
-          "issuedDate": "Jun 2022",
-          "expiryDate": ""
-        }
-      ]
-    },
-    {
-      "category": "AI & Analytics",
-      "items": [
-        {
-          "name": "Microsoft Certified: Azure AI Fundamentals",
+          "name": "Microsoft Azure AI Fundamentals (AI-900)",
           "issuer": "Microsoft",
           "logo": "microsoft",
           "credentialId": "A9B2-5X1Z",
@@ -165,11 +169,27 @@
           "expiryDate": ""
         },
         {
-          "name": "Advanced Data Analytics",
-          "issuer": "Google",
-          "logo": "google",
-          "credentialId": "G-CERT-4412",
-          "issuedDate": "Dec 2022",
+          "name": "Microsoft Azure Data Fundamentals (DP-900)",
+          "issuer": "Microsoft",
+          "logo": "microsoft",
+          "credentialId": "I1V3-8P5M",
+          "issuedDate": "Nov 2022",
+          "expiryDate": ""
+        },
+        {
+          "name": "Scrum Fundamentals Certified (SFC)",
+          "issuer": "SCRUMstudy",
+          "logo": "scrum",
+          "credentialId": "",
+          "issuedDate": "",
+          "expiryDate": ""
+        },
+        {
+          "name": "AI Ethics, Responsible Use, and Creativity",
+          "issuer": "University of Michigan (Coursera)",
+          "logo": "university",
+          "credentialId": "",
+          "issuedDate": "",
           "expiryDate": ""
         }
       ]
@@ -177,9 +197,14 @@
   ],
   "education": [
     {
-      "degree": "Advanced Diploma in Computer Systems Technology",
-      "institution": "Sheridan College",
-      "year": "2018"
+      "degree": "Post-Graduate Diploma, Electronics Engineering Technology",
+      "institution": "Centennial College, Toronto",
+      "year": "2018 – 2020"
+    },
+    {
+      "degree": "Bachelor of Technology, Electronics and Communication Engineering",
+      "institution": "Mahatma Gandhi University, India",
+      "year": "2012 – 2016"
     }
   ]
 }
