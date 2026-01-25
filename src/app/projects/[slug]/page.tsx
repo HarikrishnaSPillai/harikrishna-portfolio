@@ -51,43 +51,85 @@ export default async function ProjectDetail({ params }: PageProps) {
                     </div>
                 </header>
 
-                <article className="space-y-16">
+                <article className="space-y-20">
+                    {/* Project Image/Diagram if exists */}
+                    {(project as any).image && (
+                        <section className="bg-white p-4 md:p-8 rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+                            <img
+                                src={(project as any).image}
+                                alt={project.title}
+                                className="w-full h-auto rounded-lg"
+                            />
+                            <p className="mt-6 text-center text-sm text-gray-400 font-sans tracking-wide uppercase">
+                                System Architecture & Data Flow Diagram
+                            </p>
+                        </section>
+                    )}
+
                     <section>
-                        <h2 className="label-caps mb-6 text-gray-400">The Problem</h2>
-                        <p className="text-lg text-gray-700 font-serif leading-relaxed">
+                        <h2 className="label-caps mb-8 text-gray-400 border-b border-gray-100 pb-4">The Problem</h2>
+                        <p className="text-xl text-gray-700 font-serif leading-relaxed md:text-2xl">
                             {project.problem}
                         </p>
                     </section>
 
-                    <section>
-                        <h2 className="label-caps mb-6 text-gray-400">The Approach</h2>
-                        <p className="text-lg text-gray-700 font-serif leading-relaxed">
-                            {project.approach}
-                        </p>
-                    </section>
+                    {/* Detailed Sections if they exist */}
+                    {(project as any).sections ? (
+                        <div className="space-y-20">
+                            {(project as any).sections.map((section: any, sIdx: number) => (
+                                <section key={sIdx}>
+                                    <h3 className="text-2xl font-sans font-bold text-gray-900 mb-6 tracking-tight">
+                                        {section.title}
+                                    </h3>
+                                    <div className="prose prose-gray prose-lg max-w-none text-gray-700 font-sans">
+                                        <p className="leading-relaxed mb-6">
+                                            {section.content}
+                                        </p>
+                                        {section.bullets && (
+                                            <ul className="space-y-3 list-none p-0">
+                                                {section.bullets.map((bullet: string, bIdx: number) => (
+                                                    <li key={bIdx} className="flex gap-4 items-start text-gray-600 text-base">
+                                                        <span className="mt-2.5 w-1.5 h-1.5 rounded-full bg-gray-200 shrink-0" />
+                                                        {bullet}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        )}
+                                    </div>
+                                </section>
+                            ))}
+                        </div>
+                    ) : (
+                        <section>
+                            <h2 className="label-caps mb-8 text-gray-400 border-b border-gray-100 pb-4">The Approach</h2>
+                            <p className="text-xl text-gray-700 font-serif leading-relaxed">
+                                {project.approach}
+                            </p>
+                        </section>
+                    )}
 
-                    <section>
-                        <h2 className="label-caps mb-6 text-gray-400">Technical Stack</h2>
-                        <div className="flex flex-wrap gap-4">
+                    <section className="pt-8 border-t border-gray-100">
+                        <h2 className="label-caps mb-8 text-gray-400">Technical Stack</h2>
+                        <div className="flex flex-wrap gap-3">
                             {(project as any).skills?.map((skill: string, sIdx: number) => (
-                                <span key={sIdx} className="mono-meta text-[11px] px-3 py-1 bg-white border border-gray-100 rounded text-gray-500 uppercase tracking-widest">
+                                <span key={sIdx} className="mono-meta text-[11px] px-4 py-1.5 bg-white border border-gray-200 rounded-full text-gray-600 uppercase tracking-widest hover:border-gray-900 transition-colors">
                                     {skill}
                                 </span>
                             ))}
                         </div>
                     </section>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 pt-8 border-t border-gray-100">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-16 pt-12 border-t border-gray-100">
                         <section>
                             <h2 className="label-caps mb-6 text-gray-400">Challenges & Constraints</h2>
-                            <p className="text-base text-gray-600 font-serif leading-relaxed">
+                            <p className="text-lg text-gray-600 font-serif leading-relaxed">
                                 {project.constraints}
                             </p>
                         </section>
 
                         <section>
                             <h2 className="label-caps mb-6 text-gray-400">Outcome & Learnings</h2>
-                            <p className="text-base text-gray-600 font-serif leading-relaxed">
+                            <p className="text-lg text-gray-600 font-serif leading-relaxed">
                                 {project.outcome}
                             </p>
                         </section>
