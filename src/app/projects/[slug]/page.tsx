@@ -28,12 +28,27 @@ export default async function ProjectDetail({ params }: PageProps) {
 
                 <header className="mb-16">
                     <p className="label-caps mb-4">Case Study</p>
-                    <h1 className="text-3xl md:text-5xl font-sans font-bold text-gray-900 mb-6 tracking-tight leading-tight">
-                        {project.title}
-                    </h1>
-                    <p className="text-xl text-gray-500 font-sans italic border-l-2 border-gray-100 pl-6 py-1">
-                        {project.oneLine}
-                    </p>
+                    <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-8">
+                        <div>
+                            <h1 className="text-3xl md:text-5xl font-sans font-bold text-gray-900 mb-6 tracking-tight leading-tight">
+                                {project.title}
+                            </h1>
+                            <p className="text-xl text-gray-500 font-sans italic border-l-2 border-gray-100 pl-6 py-1">
+                                {project.oneLine}
+                            </p>
+                        </div>
+                        {(project as any).link && (
+                            <a
+                                href={(project as any).link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center justify-center px-6 py-3 bg-gray-900 text-white rounded font-sans text-sm font-semibold hover:bg-gray-800 transition-all shadow-sm whitespace-nowrap"
+                            >
+                                {(project as any).linkText || "View Project"}
+                                <span className="ml-2 text-xs">↗</span>
+                            </a>
+                        )}
+                    </div>
                 </header>
 
                 <article className="space-y-16">

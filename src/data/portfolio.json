@@ -55,6 +55,24 @@
   ],
   "projects": [
     {
+      "slug": "lockedin-ios",
+      "title": "LockedIn: Personal Productivity & Study Logger",
+      "oneLine": "A native iOS application for high-performance habit tracking and study analytics.",
+      "problem": "Building a privacy-first, cloud-synced productivity tool that balances native performance with complex backend coordination and monetization constraints.",
+      "approach": "Developed using SwiftUI with a state-driven architecture for session management. Integrated Supabase for cross-device sync and RevenueCat for a compliant monetization model.",
+      "constraints": "Navigated rigorous App Store Review guidelines for data transparency and account deletion. Optimized a 7MB footprint while supporting complex data schemas.",
+      "outcome": "Successfully launched on the App Store. Established a production-ready iOS codebase with automated launch flows and secure, scalable backend integration.",
+      "link": "https://apps.apple.com/us/app/lockedin-study-logger/id6756859046",
+      "linkText": "View on App Store",
+      "skills": [
+        "SwiftUI",
+        "Supabase",
+        "RevenueCat",
+        "App Store Connect",
+        "iOS Development"
+      ]
+    },
+    {
       "slug": "azure-batch-ingestion",
       "title": "End-to-End Batch Data Ingestion & Transformation (Azure + Databricks)",
       "oneLine": "Building a basic but production-style data pipeline on Azure.",
@@ -107,6 +125,8 @@
     "Technology & Platforms": [
       "Azure (ADF, ADLS Gen2, IAM)",
       "Databricks (Unity Catalog, DLT)",
+      "SwiftUI",
+      "iOS Development",
       "LLMs",
       "SQL",
       "Python",

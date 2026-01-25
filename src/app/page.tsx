@@ -17,7 +17,7 @@ export default function Home() {
           </p>
           <div className="flex items-center gap-6 mb-16">
             <span className="mono-meta text-gray-400 font-medium tracking-wider">
-              AZURE &bull; DATABRICKS &bull; SQL
+              AZURE &bull; DATABRICKS &bull; SWIFTUI &bull; SQL
             </span>
             <div className="h-px w-12 bg-gray-100" />
             <span className="mono-meta text-gray-400 font-medium tracking-wider text-xs uppercase">
