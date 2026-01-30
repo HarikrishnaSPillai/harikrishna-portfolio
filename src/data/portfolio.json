@@ -119,6 +119,155 @@
         "ADLS Gen2",
         "Data Governance"
       ]
+    },
+    {
+      "slug": "linux-sql-monitor",
+      "title": "Linux Cluster Resource Monitoring App",
+      "oneLine": "Bash-based monitoring agent for real-time resource tracking.",
+      "problem": "Developing a monitoring agent to keep an active track of resource usage statistics of a node in a network.",
+      "approach": "Created Bash scripts to collect metrics, stored in a PostgreSQL container via Docker. Used crontab for automation and SQL for data analysis.",
+      "constraints": "Required robust error detection for crontab updates and efficient resource usage on CentOS 7 VMs.",
+      "outcome": "Successfully deployed on GCP, providing real-time insights into cluster health.",
+      "skills": [
+        "Bash",
+        "Linux",
+        "PostgreSQL",
+        "Docker",
+        "GCP",
+        "Crontab"
+      ]
+    },
+    {
+      "slug": "twitter-crd",
+      "title": "Twitter CRD App",
+      "oneLine": "CLI tool for managing tweets via Twitter REST API.",
+      "problem": "Managing Twitter interactions through a command-line interface with proper architectural separation.",
+      "approach": "Developed using Java with MVC design pattern. Integrated with Twitter REST APIs using Spring and Maven.",
+      "constraints": "Ensuring API rate limit compliance and robust unit testing with Mockito.",
+      "outcome": "Production-ready CLI tool deployed via Docker Hub with full test coverage.",
+      "skills": [
+        "Java",
+        "Spring",
+        "REST API",
+        "MVC",
+        "Docker",
+        "Mockito"
+      ]
+    },
+    {
+      "slug": "java-grep",
+      "title": "Java Grep Implementation",
+      "oneLine": "Recursive regex search tool reimplemented in Java.",
+      "problem": "Recreating the powerful Unix grep utility in Java while optimizing for memory and speed.",
+      "approach": "Leveraged Java 8 Lambda and Stream APIs for declarative processing. Built with Maven and containerized with Docker.",
+      "constraints": "Handling large directory recursions efficiently without memory overflows.",
+      "outcome": "High-performance search utility with a modern functional programming approach.",
+      "skills": [
+        "Java",
+        "Lambda",
+        "Stream API",
+        "Regex",
+        "Maven",
+        "Docker"
+      ]
+    },
+    {
+      "slug": "retail-analytics-python",
+      "title": "Retail Sales Data Analytics",
+      "oneLine": "End-to-end data analysis and customer segmentation.",
+      "problem": "Transforming raw retail sales data into actionable marketing and budgeting strategies.",
+      "approach": "Built a mock OLAP environment using Docker and PostgreSQL. Analyzed data in Jupyter using Pandas and RFM segmentation.",
+      "constraints": "Bridging the gap between raw SQL storage and Python-based visualization layers.",
+      "outcome": "Detailed RFM segmentation model used to drive customer-centric marketing decisions.",
+      "skills": [
+        "Python",
+        "Pandas",
+        "PostgreSQL",
+        "Docker",
+        "Jupyter",
+        "RFM Analysis"
+      ]
+    },
+    {
+      "slug": "parking-detection-raspberry",
+      "title": "Real-Time Parking Detection System",
+      "oneLine": "YOLO-based vision system for parking space monitoring.",
+      "problem": "Detecting parking availability in real-time using edge computing and computer vision.",
+      "approach": "Deployed YOLO v3 on Raspberry Pi with Intel Neural Compute Stick. Synced data to Firebase for a Flutter web frontend.",
+      "constraints": "Managing latency on edge hardware and ensuring real-time Firebase synchronization.",
+      "outcome": "Functional IoT system with a real-time map interface for parking users.",
+      "skills": [
+        "Raspberry Pi",
+        "YOLO",
+        "Computer Vision",
+        "Firebase",
+        "Flutter",
+        "Python"
+      ]
+    },
+    {
+      "slug": "java-jdbc-app",
+      "title": "Java JDBC CRUD Application",
+      "oneLine": "Database management tool using DAO pattern.",
+      "problem": "Creating a reliable interface for PostgreSQL database operations using standard Java APIs.",
+      "approach": "Built using JDBC API and the DAO (Data Access Object) design pattern for clean separation of concerns. Managed with Maven.",
+      "constraints": "Ensuring proper connection pooling and transaction integrity in a CLI environment.",
+      "outcome": "Standardized tool for performing CRUD operations on relational data structures.",
+      "skills": [
+        "Java",
+        "JDBC",
+        "PostgreSQL",
+        "DAO Pattern",
+        "Maven"
+      ]
+    },
+    {
+      "slug": "legacy-portfolio",
+      "title": "Legacy Responsive Portfolio",
+      "oneLine": "Initial web presence built with standard web technologies.",
+      "problem": "Designing and deploying a professional web presence from scratch using AWS infrastructure.",
+      "approach": "Developed using HTML, CSS, and Bootstrap. Integrated MoveTo.js for smooth scrolling and MailToUI for contact features.",
+      "constraints": "Configuring S3 static hosting and Route 53 DNS for high availability.",
+      "outcome": "Successfully hosted and maintained a high-traffic personal site (www.analysthari.com).",
+      "skills": [
+        "HTML",
+        "CSS",
+        "Bootstrap",
+        "AWS S3",
+        "AWS Route 53",
+        "JavaScript"
+      ]
+    },
+    {
+      "slug": "technical-explorations",
+      "title": "Big Data & DevOps Explorations",
+      "oneLine": "Lab-based projects in Spark, Hadoop, and Spring Boot.",
+      "problem": "Understanding the architectural nuances of distributed computing and microservices.",
+      "approach": "Series of technical labs and mini-projects focusing on Hadoop HDFS, Spark RDDs, and Spring Boot service orchestration.",
+      "outcome": "Developed a strong foundation in distributed system architecture and modern Java backend development.",
+      "skills": [
+        "Spark",
+        "Hadoop",
+        "Spring Boot",
+        "Cloud DevOps"
+      ]
+    },
+    {
+      "slug": "jarvis-data-eng",
+      "title": "Jarvis Data Engineering Portfolio",
+      "oneLine": "Core technical repository for Data Engineering projects.",
+      "problem": "Maintaining a centralized, auditable record of engineering projects across diverse tech stacks.",
+      "approach": "A curated collection of projects focusing on Java, SQL, Linux, and Cloud infrastructure.",
+      "outcome": "Serves as the primary technical showcase for Jarvis Consulting initiatives.",
+      "link": "https://github.com/jarviscanada/jarvis_data_eng_HarikrishnaPillai",
+      "linkText": "View Full Repository",
+      "skills": [
+        "Data Engineering",
+        "Java",
+        "SQL",
+        "Linux",
+        "GitHub"
+      ]
     }
   ],
   "skills": {

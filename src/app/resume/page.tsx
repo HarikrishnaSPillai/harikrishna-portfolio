@@ -1,6 +1,11 @@
+"use client";
+
 import data from "@/data/portfolio.json";
+import { useState } from "react";
 
 export default function Resume() {
+    const [activeIndex, setActiveIndex] = useState<number | null>(0);
+
     return (
         <main className="min-h-screen pt-32 pb-24 px-6 md:px-0">
             <div className="max-w-[900px] mx-auto">
@@ -42,27 +47,48 @@ export default function Resume() {
                             </p>
                         </div>
 
-                        {/* Experience Section */}
+                        {/* Experience Section - Timeline */}
                         <div className="mb-12">
-                            <h3 className="label-caps text-gray-400 mb-6 border-b border-gray-100 pb-2">Experience</h3>
-                            <div className="space-y-10">
-                                {data.experience.map((exp, idx) => (
-                                    <div key={idx}>
-                                        <div className="flex justify-between items-baseline mb-2">
-                                            <h4 className="font-bold text-gray-900">{exp.company}</h4>
-                                            <span className="mono-meta text-[10px] text-gray-400 uppercase">{exp.period}</span>
+                            <h3 className="label-caps text-gray-400 mb-10 border-b border-gray-100 pb-2">Experience</h3>
+                            <div className="relative pl-8 md:pl-12">
+                                {/* Vertical Line */}
+                                <div className="absolute left-[11px] md:left-[15px] top-0 bottom-0 w-[2px] bg-gray-100" />
+
+                                <div className="space-y-16">
+                                    {data.experience.map((exp, idx) => (
+                                        <div
+                                            key={idx}
+                                            className={`relative group cursor-pointer transition-all duration-300 ${activeIndex === idx ? 'opacity-100' : 'opacity-60 hover:opacity-100'}`}
+                                            onClick={() => setActiveIndex(idx)}
+                                        >
+                                            {/* Timeline Node */}
+                                            <div className={`absolute -left-[37px] md:-left-[49px] top-1 w-6 h-6 rounded-full border-4 border-white shadow-sm transition-all duration-500 ${activeIndex === idx ? 'bg-gray-900 scale-110' : 'bg-gray-200 group-hover:bg-gray-400'}`} />
+
+                                            <div className="flex flex-col md:flex-row md:justify-between md:items-baseline mb-4 gap-2">
+                                                <div>
+                                                    <h4 className={`text-lg font-bold transition-colors ${activeIndex === idx ? 'text-gray-900' : 'text-gray-600'}`}>{exp.company}</h4>
+                                                    <p className="text-sm font-semibold text-gray-500">{exp.role}</p>
+                                                </div>
+                                                <span className="mono-meta text-[10px] text-gray-400 uppercase tracking-wider">{exp.period}</span>
+                                            </div>
+
+                                            <p className="text-sm text-gray-600 mb-6 font-serif italic leading-relaxed max-w-2xl">
+                                                {exp.narrative}
+                                            </p>
+
+                                            <div className={`overflow-hidden transition-all duration-500 ease-in-out ${activeIndex === idx ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                                                <ul className="space-y-3 pt-2">
+                                                    {exp.bullets.map((bullet, bIdx) => (
+                                                        <li key={bIdx} className="text-[14px] text-gray-600 flex gap-4 leading-relaxed group/bullet">
+                                                            <span className="text-gray-300 flex-shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-gray-200 group-hover/bullet:bg-gray-900 transition-colors" />
+                                                            <span>{bullet}</span>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
                                         </div>
-                                        <p className="text-sm font-semibold text-gray-600 mb-3">{exp.role}</p>
-                                        <ul className="space-y-2">
-                                            {exp.bullets.map((bullet, bIdx) => (
-                                                <li key={bIdx} className="text-sm text-gray-600 flex gap-3 leading-relaxed">
-                                                    <span className="text-gray-300 flex-shrink-0 mt-1">•</span>
-                                                    <span>{bullet}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                ))}
+                                    ))}
+                                </div>
                             </div>
                         </div>
 

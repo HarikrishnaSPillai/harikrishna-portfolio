@@ -25,7 +25,7 @@ export default function Projects() {
                             <p className="text-[16px] text-gray-600 leading-relaxed font-sans mb-8 line-clamp-3">
                                 {project.approach}
                             </p>
-                            <div className="mt-auto">
+                            <div className="mt-auto flex gap-6">
                                 <Link
                                     href={`/projects/${project.slug}`}
                                     className="text-sm font-sans font-bold text-gray-900 hover:text-gray-500 transition-colors inline-flex items-center gap-2"
@@ -33,6 +33,17 @@ export default function Projects() {
                                     View details
                                     <span className="text-xs transition-transform group-hover:translate-x-1">→</span>
                                 </Link>
+                                {(project as any).link && (
+                                    <a
+                                        href={(project as any).link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-sm font-sans font-bold text-gray-400 hover:text-gray-900 transition-colors inline-flex items-center gap-2"
+                                    >
+                                        {(project as any).linkText || "External Link"}
+                                        <span className="text-[10px]">↗</span>
+                                    </a>
+                                )}
                             </div>
                         </div>
                     ))}
