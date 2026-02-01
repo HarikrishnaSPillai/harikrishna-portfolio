@@ -142,45 +142,6 @@
       "category": "Systems & DevOps"
     },
     {
-      "slug": "twitter-crd",
-      "title": "Twitter CRD App",
-      "oneLine": "A command-line interface tool for enterprise-grade Twitter interaction management.",
-      "problem": "Twitter Management requires a clean, programmatic way to interact with the platform while maintaining standard software development patterns for scalability and testing.",
-      "approach": "Architected using the MVC (Model-View-Controller) design pattern in Java. Utilized Maven for dependency management and Spring for inversion of control. The tool interacts directly with Twitter's REST APIs to execute Create, Read, and Delete operations for tweets.",
-      "constraints": "Adhered to Twitter's strict API rate limits and data schemas. Implemented comprehensive unit testing using JUnit and Mockito to simulate API responses and ensure business logic correctness.",
-      "outcome": "Delivered a containerized, production-ready CLI application hosted on Docker Hub, demonstrating an end-to-end SDLC following Agile/Scrum methodologies at Jarvis.",
-      "skills": [
-        "Java",
-        "Spring Boot",
-        "REST API",
-        "MVC",
-        "Docker",
-        "JUnit",
-        "Mockito",
-        "Maven"
-      ],
-      "category": "Software Engineering"
-    },
-    {
-      "slug": "java-grep",
-      "title": "Java Grep Implementation",
-      "oneLine": "A modern reimplementation of the Unix grep utility focusing on memory efficiency and declarative code.",
-      "problem": "Standard recursive file searches can become memory-intensive. The goal was to build a tool that could handle large directory structures with a constant memory profile.",
-      "approach": "Utilized Java 8's Lambda expressions and the Stream API to process data lazily. This allowed the application to recursively walk directories and process matching patterns without loading the entire file tree into memory.",
-      "constraints": "Balanced performance and memory usage when dealing with large, nested file systems. The tool was built with Maven and containerized with Docker to ensure platform independence.",
-      "outcome": "Achieved a 40% reduction in memory usage compared to traditional recursive implementations while providing a highly readable, functional codebase.",
-      "skills": [
-        "Java",
-        "Lambda Expressions",
-        "Stream API",
-        "Regex",
-        "Functional Programming",
-        "Docker",
-        "Maven"
-      ],
-      "category": "Software Engineering"
-    },
-    {
       "slug": "retail-analytics-python",
       "title": "Retail Sales Data Analytics",
       "oneLine": "End-to-end analytics platform for customer segmentation and marketing strategy optimization.",
@@ -217,43 +178,6 @@
         "IoT"
       ],
       "category": "Mobile & AI"
-    },
-    {
-      "slug": "java-jdbc-app",
-      "title": "Java JDBC CRUD Application",
-      "oneLine": "A clean-room implementation of a database management tool using the DAO pattern.",
-      "problem": "Building a reusable data access layer that minimizes boilerplate and ensures safe database transactions.",
-      "approach": "Leveraged the JDBC API to interface with a PostgreSQL backend. Implemented the Data Access Object (DAO) pattern to abstract low-level data operations, ensuring the business logic remains decoupled from the storage layer.",
-      "constraints": "Handling SQL exceptions gracefully and managing database connection cycles to prevent leakages in high-frequency environments.",
-      "outcome": "Provided a robust template for Java-to-RDBMS connectivity that has been reused across several internal Jarvis projects.",
-      "skills": [
-        "Java",
-        "JDBC",
-        "PostgreSQL",
-        "DAO Pattern",
-        "SQL",
-        "Database Architecture"
-      ],
-      "category": "Software Engineering"
-    },
-    {
-      "slug": "legacy-portfolio",
-      "title": "Legacy Responsive Portfolio",
-      "oneLine": "An editorial-style personal presence built with Bootstrap and hosted on AWS infrastructure.",
-      "problem": "Establishing a professional online identity that performs well across all devices while being cost-effective to host.",
-      "approach": "Crafted a custom design using HTML, CSS, and Bootstrap. Integrated interactive JavaScript libraries like MoveTo.js for navigation and MailToUI for engagement. The site was deployed using a serverless approach on AWS S3 and Route 53.",
-      "constraints": "Ensuring cross-browser compatibility and optimizing assets for sub-one-second load times on mobile networks.",
-      "outcome": "Supported a professional brand identity that successfully served thousands of visitors at www.analysthari.com.",
-      "skills": [
-        "HTML",
-        "CSS",
-        "Bootstrap",
-        "AWS S3",
-        "AWS Route 53",
-        "JavaScript",
-        "SEO Optimization"
-      ],
-      "category": "Software Engineering"
     },
     {
       "slug": "technical-explorations",

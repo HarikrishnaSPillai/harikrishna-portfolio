@@ -17,46 +17,64 @@ export default function Experience() {
                     </p>
                 </header>
 
-                <section className="relative pl-8 md:pl-12">
-                    {/* Vertical Line */}
-                    <div className="absolute left-[11px] md:left-[15px] top-0 bottom-0 w-[2px] bg-gray-100" />
+                <section className="mb-12">
+                    <div className="relative mb-12">
+                        {/* Horizontal Timeline Container */}
+                        <div className="overflow-x-auto pb-8 -mx-4 px-4 scrollbar-hide">
+                            <div className="flex gap-12 min-w-max relative pt-12">
+                                {/* Horizontal Connecting Line */}
+                                <div className="absolute left-0 top-[60px] right-0 h-[2px] bg-gray-100" />
 
-                    <div className="space-y-24">
+                                {data.experience.map((exp, idx) => (
+                                    <div
+                                        key={idx}
+                                        className={`relative w-72 cursor-pointer transition-all duration-300 ${activeIndex === idx ? 'opacity-100' : 'opacity-60 hover:opacity-100'}`}
+                                        onClick={() => setActiveIndex(idx)}
+                                    >
+                                        {/* Timeline Node */}
+                                        <div className={`absolute left-0 top-[4px] w-6 h-6 rounded-full border-4 border-white shadow-sm transition-all duration-500 z-10 ${activeIndex === idx ? 'bg-gray-900 scale-110' : 'bg-gray-200 group-hover:bg-gray-400'}`} />
+
+                                        <div className="pt-12">
+                                            <span className="mono-meta text-[11px] text-gray-400 uppercase tracking-widest mb-3 block">{exp.period}</span>
+                                            <h2 className={`text-xl font-sans font-bold mb-1 transition-all ${activeIndex === idx ? 'text-gray-900' : 'text-gray-600'}`}>{exp.company}</h2>
+                                            <p className="text-sm font-sans text-gray-500 font-semibold">{exp.role}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Detailed Experience Content (Revealed on click) */}
+                    <div className="bg-white rounded-xl border border-gray-100 p-8 md:p-12 min-h-[400px] transition-all duration-500 shadow-sm">
                         {data.experience.map((exp, idx) => (
                             <div
                                 key={idx}
-                                className={`relative group cursor-pointer transition-all duration-300 ${activeIndex === idx ? 'opacity-100' : 'opacity-60 hover:opacity-100'}`}
-                                onClick={() => setActiveIndex(idx)}
+                                className={`${activeIndex === idx ? 'block animate-in fade-in slide-in-from-top-6 duration-700' : 'hidden'}`}
                             >
-                                {/* Timeline Node */}
-                                <div className={`absolute -left-[37px] md:-left-[49px] top-1.5 w-6 h-6 rounded-full border-4 border-white shadow-sm transition-all duration-500 ${activeIndex === idx ? 'bg-gray-900 scale-110' : 'bg-gray-200 group-hover:bg-gray-400'}`} />
-
-                                <div className="flex flex-col md:flex-row md:justify-between md:items-baseline mb-8 gap-4">
+                                <div className="flex flex-col md:flex-row md:justify-between md:items-baseline mb-8 gap-4 pb-8 border-b border-gray-50">
                                     <div>
-                                        <h2 className={`text-2xl font-sans font-bold transition-all ${activeIndex === idx ? 'text-gray-900' : 'text-gray-600'}`}>{exp.company}</h2>
-                                        <p className="text-gray-500 font-sans mt-1 text-base font-semibold">{exp.role}</p>
+                                        <h3 className="text-3xl font-sans font-bold text-gray-900 mb-1">{exp.company}</h3>
+                                        <p className="text-lg text-gray-500 font-sans font-medium">{exp.role}</p>
                                     </div>
-                                    <span className="mono-meta text-gray-400 font-medium px-2 py-0.5 border border-gray-100 rounded bg-white/50 tracking-wider text-[10px] uppercase">
+                                    <span className="mono-meta text-gray-400 font-medium px-3 py-1 border border-gray-100 rounded-full bg-gray-50 tracking-wider text-[11px] uppercase">
                                         {exp.period}
                                     </span>
                                 </div>
 
-                                <div className="prose prose-gray prose-lg max-w-none">
-                                    <p className="text-gray-800 leading-relaxed font-sans mb-10 text-[18px] italic border-l-2 border-gray-100 pl-6 py-2">
-                                        {exp.narrative}
-                                    </p>
+                                <p className="text-xl text-gray-800 leading-relaxed font-sans mb-12 italic border-l-4 border-gray-900 pl-8 py-2 max-w-4xl">
+                                    {exp.narrative}
+                                </p>
 
-                                    <div className={`overflow-hidden transition-all duration-700 ease-in-out ${activeIndex === idx ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'}`}>
-                                        <h3 className="label-caps mb-8 text-gray-400">Selected Contributions</h3>
-                                        <ul className="space-y-6 list-none p-0">
-                                            {exp.bullets.map((bullet, bIdx) => (
-                                                <li key={bIdx} className="flex gap-5 items-start text-gray-700 text-[17px] leading-relaxed group/bullet">
-                                                    <span className="mt-2.5 w-2 h-2 rounded-full bg-gray-200 shrink-0 group-hover/bullet:bg-gray-900 transition-colors" />
-                                                    <span>{bullet}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8">
+                                    {exp.bullets.map((bullet, bIdx) => (
+                                        <div key={bIdx} className="flex gap-6 items-start group/bullet">
+                                            <span className="mt-3 w-2 h-2 rounded-full bg-gray-200 shrink-0 group-hover/bullet:bg-gray-900 transition-colors" />
+                                            <p className="text-gray-700 text-[16px] leading-relaxed font-sans">
+                                                {bullet}
+                                            </p>
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
                         ))}
