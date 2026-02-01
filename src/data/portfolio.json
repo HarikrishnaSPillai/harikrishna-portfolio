@@ -70,7 +70,8 @@
         "RevenueCat",
         "App Store Connect",
         "iOS Development"
-      ]
+      ],
+      "category": "Mobile & AI"
     },
     {
       "slug": "azure-data-engineering",
@@ -118,7 +119,8 @@
         "Spark",
         "ADLS Gen2",
         "Data Governance"
-      ]
+      ],
+      "category": "Data & Architecture"
     },
     {
       "slug": "linux-sql-monitor",
@@ -136,7 +138,8 @@
         "GCP",
         "Crontab",
         "SQL Analysis"
-      ]
+      ],
+      "category": "Systems & DevOps"
     },
     {
       "slug": "twitter-crd",
@@ -155,7 +158,8 @@
         "JUnit",
         "Mockito",
         "Maven"
-      ]
+      ],
+      "category": "Software Engineering"
     },
     {
       "slug": "java-grep",
@@ -173,7 +177,8 @@
         "Functional Programming",
         "Docker",
         "Maven"
-      ]
+      ],
+      "category": "Software Engineering"
     },
     {
       "slug": "retail-analytics-python",
@@ -191,7 +196,8 @@
         "Jupyter",
         "RFM Segmentation",
         "Data Visualization"
-      ]
+      ],
+      "category": "Data & Architecture"
     },
     {
       "slug": "parking-detection-raspberry",
@@ -209,7 +215,8 @@
         "Flutter",
         "Computer Vision",
         "IoT"
-      ]
+      ],
+      "category": "Mobile & AI"
     },
     {
       "slug": "java-jdbc-app",
@@ -226,7 +233,8 @@
         "DAO Pattern",
         "SQL",
         "Database Architecture"
-      ]
+      ],
+      "category": "Software Engineering"
     },
     {
       "slug": "legacy-portfolio",
@@ -244,7 +252,8 @@
         "AWS Route 53",
         "JavaScript",
         "SEO Optimization"
-      ]
+      ],
+      "category": "Software Engineering"
     },
     {
       "slug": "technical-explorations",
@@ -260,7 +269,8 @@
         "Distributed Systems",
         "HDFS",
         "Microservices"
-      ]
+      ],
+      "category": "Data & Architecture"
     },
     {
       "slug": "jarvis-data-eng",
@@ -277,7 +287,8 @@
         "SQL",
         "Linux",
         "GitHub"
-      ]
+      ],
+      "category": "Data & Architecture"
     }
   ],
   "skills": {

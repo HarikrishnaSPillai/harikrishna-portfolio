@@ -1,9 +1,24 @@
+"use client";
+
 import data from "@/data/portfolio.json";
 import Link from "next/link";
+import { useState, useMemo } from "react";
 
 export default function Projects() {
+    const [selectedCategory, setSelectedCategory] = useState("All");
+
+    const categories = useMemo(() => {
+        const cats = new Set(data.projects.map((p: any) => p.category));
+        return ["All", ...Array.from(cats)].filter(Boolean);
+    }, []);
+
+    const filteredProjects = useMemo(() => {
+        if (selectedCategory === "All") return data.projects;
+        return data.projects.filter((p: any) => p.category === selectedCategory);
+    }, [selectedCategory]);
+
     return (
-        <main className="min-h-screen pt-32 pb-24 px-6 md:px-0">
+        <main className="min-h-screen pt-32 pb-24 px-6 md:px-0 text-gray-900">
             <div className="max-w-[900px] mx-auto">
                 <header className="mb-16 text-center md:text-left">
                     <p className="label-caps mb-4">Portfolio</p>
@@ -13,9 +28,30 @@ export default function Projects() {
                     </p>
                 </header>
 
-                <section className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
-                    {data.projects.map((project, idx) => (
-                        <div key={idx} className="flex flex-col border-t border-gray-100 pt-8 group">
+                {/* Category Selection */}
+                <nav className="mb-16 border-b border-gray-100 pb-2">
+                    <div className="flex flex-wrap gap-x-8 gap-y-4">
+                        {categories.map((cat) => (
+                            <button
+                                key={cat}
+                                onClick={() => setSelectedCategory(cat)}
+                                className={`mono-meta text-[10px] uppercase tracking-widest pb-2 transition-all relative ${selectedCategory === cat
+                                        ? "text-gray-900 font-bold"
+                                        : "text-gray-400 hover:text-gray-600"
+                                    }`}
+                            >
+                                {cat}
+                                {selectedCategory === cat && (
+                                    <span className="absolute bottom-[-1px] left-0 w-full h-[2px] bg-gray-900" />
+                                )}
+                            </button>
+                        ))}
+                    </div>
+                </nav>
+
+                <section className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 transition-all duration-500">
+                    {filteredProjects.map((project, idx) => (
+                        <div key={idx} className="flex flex-col border-t border-gray-100 pt-8 group animate-in fade-in slide-in-from-bottom-4 duration-500">
                             <h2 className="text-xl font-sans font-bold text-gray-900 mb-2 group-hover:text-brand-primary transition-colors">
                                 {project.title}
                             </h2>
