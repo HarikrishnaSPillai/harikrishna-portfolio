@@ -3,9 +3,11 @@
 import data from "@/data/portfolio.json";
 import Link from "next/link";
 import { useState, useMemo } from "react";
+import { useEReader } from "@/context/EReaderContext";
 
 export default function Projects() {
     const [selectedCategory, setSelectedCategory] = useState("All");
+    const { triggerPageFlash } = useEReader();
 
     const categories = useMemo(() => {
         const cats = new Set(data.projects.map((p: any) => p.category));
@@ -18,84 +20,121 @@ export default function Projects() {
     }, [selectedCategory]);
 
     return (
-        <main className="min-h-screen pt-32 pb-24 px-6 md:px-0 text-gray-900">
-            <div className="max-w-[900px] mx-auto">
-                <header className="mb-16 text-center md:text-left">
-                    <p className="label-caps mb-4">Portfolio</p>
-                    <h1 className="text-3xl md:text-4xl font-sans font-bold text-gray-900 mb-4 tracking-tight">Projects & Initiatives</h1>
-                    <p className="text-lg text-gray-500 font-sans leading-relaxed">
-                        Conceptual systems and technical strategies designed for scalability and correctness.
-                    </p>
-                </header>
+        <article className="space-y-10">
+            {/* Chapter Header */}
+            <header className="border-b-2 border-reader-subtle pb-6 space-y-3">
+                <div className="flex justify-between items-baseline font-mono text-xs opacity-60 uppercase tracking-widest">
+                    <span>CHAPTER III</span>
+                    <span>TECHNICAL CATALOG</span>
+                </div>
+                <h1 className="text-3xl sm:text-4xl font-serif font-bold tracking-tight">
+                    Projects & Technical Initiatives
+                </h1>
+                <p className="text-base sm:text-lg font-serif italic opacity-85">
+                    Conceptual systems, architecture designs, and software engineering initiatives built for scalability, correctness, and operational rigor.
+                </p>
+            </header>
 
-                {/* Category Selection */}
-                <nav className="mb-16 border-b border-gray-100 pb-2">
-                    <div className="flex flex-wrap gap-x-8 gap-y-4">
-                        {categories.map((cat) => (
+            {/* Category Index Navigation */}
+            <section className="space-y-3">
+                <h2 className="font-mono text-xs uppercase tracking-widest opacity-60 border-b border-reader-subtle pb-1">
+                    Catalog Classification Index
+                </h2>
+                <div className="flex flex-wrap gap-2">
+                    {categories.map((cat) => {
+                        const isSelected = selectedCategory === cat;
+                        return (
                             <button
                                 key={cat}
                                 onClick={() => setSelectedCategory(cat)}
-                                className={`mono-meta text-[10px] uppercase tracking-widest pb-2 transition-all relative ${selectedCategory === cat
-                                        ? "text-gray-900 font-bold"
-                                        : "text-gray-400 hover:text-gray-600"
-                                    }`}
+                                className={`px-3 py-1.5 rounded font-mono text-xs uppercase tracking-wider transition-all ${isSelected ? "border-2 border-reader-accent bg-reader-hover font-bold shadow-xs" : "border border-reader-subtle opacity-70 hover:opacity-100 hover:bg-reader-hover/50"}`}
                             >
                                 {cat}
-                                {selectedCategory === cat && (
-                                    <span className="absolute bottom-[-1px] left-0 w-full h-[2px] bg-gray-900" />
-                                )}
                             </button>
-                        ))}
-                    </div>
-                </nav>
+                        );
+                    })}
+                </div>
+            </section>
 
-                <section className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 transition-all duration-500">
-                    {filteredProjects.map((project, idx) => (
-                        <div key={idx} className="flex flex-col border-t border-gray-100 pt-8 group animate-in fade-in slide-in-from-bottom-4 duration-500">
-                            <h2 className="text-xl font-sans font-bold text-gray-900 mb-2 group-hover:text-brand-primary transition-colors">
+            {/* Project List Index Grid */}
+            <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {filteredProjects.map((project: any, idx: number) => (
+                    <div
+                        key={idx}
+                        className="p-6 border border-reader-subtle hover:border-reader-accent rounded-lg bg-reader-hover/20 flex flex-col justify-between space-y-4 transition-all group hover:shadow-md"
+                    >
+                        <div className="space-y-2">
+                            <div className="flex items-center justify-between font-mono text-[10px] opacity-60 uppercase tracking-wider">
+                                <span>ITEM 0{idx + 1} &bull; {project.category}</span>
+                                <span>3 min read</span>
+                            </div>
+                            <h3 className="font-serif font-bold text-xl leading-tight group-hover:underline">
                                 {project.title}
-                            </h2>
-                            <p className="mono-meta text-gray-400 mb-6 uppercase tracking-wider">
+                            </h3>
+                            <p className="font-sans text-xs font-semibold opacity-75">
                                 {project.oneLine}
                             </p>
-                            <p className="text-[16px] text-gray-600 leading-relaxed font-sans mb-8 line-clamp-3">
+                            <p className="font-serif text-sm opacity-85 line-clamp-3 pt-2">
                                 {project.approach}
                             </p>
-                            <div className="mt-auto flex gap-6">
+                        </div>
+
+                        {/* Tech tags */}
+                        <div className="pt-4 border-t border-reader-subtle flex flex-col gap-3">
+                            <div className="flex flex-wrap gap-1">
+                                {project.skills?.map((skill: string, sIdx: number) => (
+                                    <span
+                                        key={sIdx}
+                                        className="font-mono text-[10px] px-2 py-0.5 border border-reader-subtle rounded opacity-75"
+                                    >
+                                        {skill}
+                                    </span>
+                                ))}
+                            </div>
+
+                            <div className="flex justify-between items-center pt-1 font-serif text-xs">
                                 <Link
                                     href={`/projects/${project.slug}`}
-                                    className="text-sm font-sans font-bold text-gray-900 hover:text-gray-500 transition-colors inline-flex items-center gap-2"
+                                    onClick={triggerPageFlash}
+                                    className="font-bold border-b-2 border-reader-accent pb-0.5 hover:opacity-75 transition-opacity flex items-center gap-1"
                                 >
-                                    View details
-                                    <span className="text-xs transition-transform group-hover:translate-x-1">→</span>
+                                    <span>Read Monograph</span>
+                                    <span>→</span>
                                 </Link>
-                                {(project as any).link && (
+                                {project.link && (
                                     <a
-                                        href={(project as any).link}
+                                        href={project.link}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="text-sm font-sans font-bold text-gray-400 hover:text-gray-900 transition-colors inline-flex items-center gap-2"
+                                        className="font-mono text-[11px] opacity-60 hover:opacity-100 flex items-center gap-1"
                                     >
-                                        {(project as any).linkText || "External Link"}
-                                        <span className="text-[10px]">↗</span>
+                                        <span>External</span>
+                                        <span>↗</span>
                                     </a>
                                 )}
                             </div>
                         </div>
-                    ))}
-                </section>
-
-                {/* Footer */}
-                <footer className="pt-24 mt-24 border-t border-gray-100 flex flex-col md:flex-row md:justify-between items-center">
-                    <p className="text-sm text-gray-400 font-sans mb-4 md:mb-0">
-                        {data.name} &bull; {data.location}
-                    </p>
-                    <div className="flex gap-8 text-sm font-sans text-gray-400">
-                        <a href={data.socials.linkedin} target="_blank" className="hover:text-gray-900 transition-colors">LinkedIn</a>
-                        <a href={`mailto:${data.socials.email}`} className="hover:text-gray-900 transition-colors">Email</a>
                     </div>
-                </footer>
-            </div>
-        </main>
+                ))}
+            </section>
+
+            {/* Chapter Navigation Footer */}
+            <section className="pt-6 border-t-2 border-reader-subtle flex justify-between items-center">
+                <Link
+                    href="/experience"
+                    onClick={triggerPageFlash}
+                    className="font-serif text-sm border border-reader-subtle px-4 py-2 rounded hover:bg-reader-hover transition-colors"
+                >
+                    ← Chapter II: Experience
+                </Link>
+                <Link
+                    href="/certifications"
+                    onClick={triggerPageFlash}
+                    className="font-serif font-bold text-sm border-2 border-reader-accent px-5 py-2 rounded hover:bg-reader-hover transition-all"
+                >
+                    Chapter IV: Credentials →
+                </Link>
+            </section>
+        </article>
     );
 }

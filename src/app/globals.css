@@ -3,68 +3,161 @@
 
 @theme {
   --color-brand-primary: #00458b;
-  --color-text-main: #2d2d2d;
-  /* Charcoal */
-  --color-text-muted: #6b6b6b;
-  --color-bg-page: #f9f7f2;
-  /* Warmer off-white (paper-like) */
-  --color-border-subtle: rgba(45, 45, 45, 0.08);
-
   --font-serif: var(--font-source-serif), "Georgia", "Cambria", serif;
   --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
   --font-mono: var(--font-mono), "Courier New", monospace;
 }
 
-:root {
-  --background: var(--color-bg-page);
-  --foreground: var(--color-text-main);
+/* ----------------------------------------------------
+   E-READER THEMES & CSS VARIABLE SYSTEM
+   ---------------------------------------------------- */
+
+/* Theme 1: Paper / Warm Off-White E-Paper (Default) */
+.theme-paper {
+  --reader-bg: #F6F3EB;
+  --reader-fg: #1D1D1D;
+  --reader-accent: #2C2C2C;
+  --reader-subtle: rgba(29, 29, 29, 0.15);
+  --reader-border: #E0D9CB;
+  --reader-hover: #ECE5D6;
+  --reader-bezel: #EAE3D4;
+}
+
+/* Theme 2: Vintage Sepia Amber */
+.theme-sepia {
+  --reader-bg: #F4ECD8;
+  --reader-fg: #362819;
+  --reader-accent: #4A3824;
+  --reader-subtle: rgba(54, 40, 25, 0.15);
+  --reader-border: #DCCAA7;
+  --reader-hover: #EADCBF;
+  --reader-bezel: #E6D6B5;
+}
+
+/* Theme 3: Dark Night Mode */
+.theme-dark {
+  --reader-bg: #161616;
+  --reader-fg: #E2E2E2;
+  --reader-accent: #FFFFFF;
+  --reader-subtle: rgba(226, 226, 226, 0.15);
+  --reader-border: #303030;
+  --reader-hover: #242424;
+  --reader-bezel: #0F0F0F;
+}
+
+/* Theme 4: High-Contrast E-Ink Monochrome */
+.theme-monochrome {
+  --reader-bg: #FFFFFF;
+  --reader-fg: #000000;
+  --reader-accent: #000000;
+  --reader-subtle: #000000;
+  --reader-border: #000000;
+  --reader-hover: #F0F0F0;
+  --reader-bezel: #E6E6E6;
+}
+
+/* Apply CSS variables to custom helper classes */
+.bg-reader-bg {
+  background-color: var(--reader-bg);
+}
+.text-reader-fg {
+  color: var(--reader-fg);
+}
+.border-reader-accent {
+  border-color: var(--reader-accent);
+}
+.border-reader-subtle {
+  border-color: var(--reader-subtle);
+}
+.border-reader-border {
+  border-color: var(--reader-border);
+}
+.bg-reader-hover {
+  background-color: var(--reader-hover);
+}
+.bg-reader-bezel {
+  background-color: var(--reader-bezel);
+}
+.bg-reader-subtle {
+  background-color: var(--reader-subtle);
+}
+.bg-reader-fg {
+  background-color: var(--reader-fg);
 }
 
 body {
-  background-color: var(--color-bg-page);
-  color: var(--color-text-main);
+  background-color: var(--reader-bg);
+  color: var(--reader-fg);
   font-family: var(--font-serif);
-  line-height: 1.7;
+  line-height: 1.75;
   -webkit-font-smoothing: antialiased;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-sans);
-  font-weight: 700;
-  letter-spacing: -0.015em;
-  color: #1a1a1a;
+/* E-Ink Refresh Screen Flash Animation */
+@keyframes einkFlash {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.95;
+    background-color: #000;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
-.label-caps {
-  font-family: var(--font-sans);
-  font-size: 0.65rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: #888;
+.animate-eink-flash {
+  animation: einkFlash 0.3s cubic-bezier(0.4, 0, 0.6, 1) forwards;
 }
 
-.mono-meta {
+/* Book Marker Highlight Effect */
+.reader-highlight {
+  background-color: rgba(250, 204, 21, 0.25);
+  border-bottom: 2px solid rgba(234, 179, 8, 0.6);
+  padding: 0 2px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.theme-dark .reader-highlight {
+  background-color: rgba(250, 204, 21, 0.15);
+  color: #FFE066;
+}
+
+.reader-highlight:hover {
+  background-color: rgba(250, 204, 21, 0.45);
+}
+
+/* Drop Cap initial letter for chapter openings */
+.drop-cap::first-letter {
+  font-size: 3.5rem;
+  line-height: 0.8;
+  font-weight: 800;
+  float: left;
+  margin-right: 0.75rem;
+  margin-top: 0.2rem;
+  font-family: var(--font-serif);
+  color: var(--reader-accent);
+}
+
+/* Typographic Chapter Divider */
+.chapter-divider {
+  display: flex;
+  items-center;
+  justify-content: center;
+  margin: 3rem 0;
+  opacity: 0.4;
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.5em;
 }
 
-.prose {
-  max-width: 720px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Typographic Divider */
-.divider {
-  height: 1px;
-  background: var(--color-border-subtle);
-  border: none;
-  margin: 3rem 0;
+.chapter-divider::before,
+.chapter-divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px dashed var(--reader-subtle);
+  margin: 0 1rem;
 }

@@ -2,174 +2,188 @@
 
 import data from "@/data/portfolio.json";
 import { useState } from "react";
+import Link from "next/link";
+import { useEReader } from "@/context/EReaderContext";
 
 export default function Resume() {
-    const [activeIndex, setActiveIndex] = useState<number | null>(0);
+    const [activeIndex, setActiveIndex] = useState<number>(0);
+    const { triggerPageFlash } = useEReader();
 
     return (
-        <main className="min-h-screen pt-32 pb-24 px-6 md:px-0">
-            <div className="max-w-[900px] mx-auto">
-                <header className="mb-20 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
-                    <div>
-                        <p className="label-caps mb-4">Documentation</p>
-                        <h1 className="text-3xl md:text-4xl font-sans font-bold text-gray-900 mb-4 tracking-tight">Resume</h1>
-                        <p className="text-lg text-gray-500 font-sans leading-relaxed">
-                            Updated as of <span className="mono-meta text-gray-900 font-bold px-1.5 py-0.5 bg-gray-100 rounded">JANUARY 2026</span>
-                        </p>
+        <article className="space-y-10">
+            {/* Chapter Header & PDF Export Action */}
+            <header className="border-b-2 border-reader-subtle pb-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+                <div className="space-y-2">
+                    <div className="flex items-center gap-2 font-mono text-xs opacity-60 uppercase tracking-widest">
+                        <span>CHAPTER VI</span>
+                        <span>&bull;</span>
+                        <span>OFFICIAL CV MONOGRAPH</span>
                     </div>
-                    <a
-                        href="/resume.pdf"
-                        download="Harikrishna_Pillai_Resume.pdf"
-                        className="inline-flex items-center justify-center px-10 py-3 bg-gray-900 text-white rounded font-sans text-sm font-semibold hover:bg-gray-800 transition-all shadow-sm"
-                    >
-                        Download PDF
-                    </a>
-                </header>
-
-                <section className="bg-white rounded p-8 md:p-12 border border-gray-100 shadow-sm relative group overflow-hidden">
-                    <div className="max-w-full mx-auto font-sans text-gray-900">
-                        {/* Header Section */}
-                        <div className="border-b-2 border-gray-900 pb-8 mb-12">
-                            <h2 className="text-3xl font-bold tracking-tighter mb-2 uppercase">{data.name}</h2>
-                            <p className="text-gray-500 font-medium mb-4">{data.role} &bull; {data.specialization}</p>
-                            <div className="flex flex-wrap gap-x-6 gap-y-2 mono-meta text-[10px] text-gray-400 uppercase tracking-widest">
-                                <span>{data.location}</span>
-                                <span>{data.socials.linkedin.replace('https://', '')}</span>
-                                <span>{data.socials.email}</span>
-                            </div>
-                        </div>
-
-                        {/* Summary Section */}
-                        <div className="mb-12">
-                            <h3 className="label-caps text-gray-400 mb-4 border-b border-gray-100 pb-2">Professional Summary</h3>
-                            <p className="text-[15px] leading-relaxed text-gray-700 font-serif">
-                                {data.summary}
-                            </p>
-                        </div>
-
-                        {/* Experience Section - Horizontal Timeline */}
-                        <div className="mb-12">
-                            <h3 className="label-caps text-gray-400 mb-10 border-b border-gray-100 pb-2">Experience</h3>
-
-                            <div className="relative mb-12">
-                                {/* Horizontal Timeline Container */}
-                                <div className="overflow-x-auto pb-8 -mx-4 px-4 scrollbar-hide">
-                                    <div className="flex gap-12 min-w-max relative pt-8">
-                                        {/* Horizontal Connecting Line */}
-                                        <div className="absolute left-0 top-[43px] right-0 h-[2px] bg-gray-100" />
-
-                                        {data.experience.map((exp, idx) => (
-                                            <div
-                                                key={idx}
-                                                className={`relative w-64 cursor-pointer transition-all duration-300 ${activeIndex === idx ? 'opacity-100' : 'opacity-60 hover:opacity-100'}`}
-                                                onClick={() => setActiveIndex(idx)}
-                                            >
-                                                {/* Timeline Node */}
-                                                <div className={`absolute left-0 top-[4px] w-6 h-6 rounded-full border-4 border-white shadow-sm transition-all duration-500 z-10 ${activeIndex === idx ? 'bg-gray-900 scale-110' : 'bg-gray-200 group-hover:bg-gray-400'}`} />
-
-                                                <div className="pt-10">
-                                                    <span className="mono-meta text-[10px] text-gray-400 uppercase tracking-wider mb-2 block">{exp.period}</span>
-                                                    <h4 className={`text-md font-bold mb-1 transition-colors ${activeIndex === idx ? 'text-gray-900' : 'text-gray-600'}`}>{exp.company}</h4>
-                                                    <p className="text-xs font-semibold text-gray-500 line-clamp-1">{exp.role}</p>
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Detailed Experience Content (Revealed on click) */}
-                            <div className="bg-gray-50 rounded-lg p-6 md:p-8 min-h-[300px] transition-all duration-500">
-                                {data.experience.map((exp, idx) => (
-                                    <div
-                                        key={idx}
-                                        className={`${activeIndex === idx ? 'block animate-in fade-in slide-in-from-top-4 duration-500' : 'hidden'}`}
-                                    >
-                                        <div className="flex flex-col md:flex-row md:justify-between md:items-baseline mb-6 gap-2">
-                                            <div>
-                                                <h4 className="text-xl font-bold text-gray-900">{exp.company}</h4>
-                                                <p className="text-sm font-semibold text-gray-500">{exp.role} &bull; {exp.period}</p>
-                                            </div>
-                                        </div>
-
-                                        <p className="text-[15px] text-gray-600 mb-8 font-serif italic leading-relaxed max-w-3xl border-l-2 border-gray-200 pl-6">
-                                            {exp.narrative}
-                                        </p>
-
-                                        <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
-                                            {exp.bullets.map((bullet, bIdx) => (
-                                                <li key={bIdx} className="text-[14px] text-gray-600 flex gap-4 leading-relaxed group/bullet">
-                                                    <span className="text-gray-300 flex-shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-gray-400 group-hover/bullet:bg-gray-900 transition-colors" />
-                                                    <span>{bullet}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Skills Section */}
-                        <div className="mb-12">
-                            <h3 className="label-caps text-gray-400 mb-6 border-b border-gray-100 pb-2">Core Competencies</h3>
-                            <div className="grid grid-cols-2 gap-x-12 gap-y-6">
-                                {Object.entries(data.skills).map(([category, items], idx) => (
-                                    <div key={idx}>
-                                        <h4 className="mono-meta text-[9px] uppercase tracking-[0.2em] text-gray-400 mb-3">{category}</h4>
-                                        <p className="text-sm text-gray-700 font-serif">
-                                            {items.join(', ')}
-                                        </p>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Education & Certs - 2 column */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                            <section>
-                                <h3 className="label-caps text-gray-400 mb-6 border-b border-gray-100 pb-2">Education</h3>
-                                {data.education.map((edu, idx) => (
-                                    <div key={idx}>
-                                        <h4 className="font-bold text-sm text-gray-900">{edu.degree}</h4>
-                                        <p className="text-xs text-gray-500 mt-1">{edu.institution}, {edu.year}</p>
-                                    </div>
-                                ))}
-                            </section>
-
-                            <section>
-                                <h3 className="label-caps text-gray-400 mb-6 border-b border-gray-100 pb-2">Active Credentials</h3>
-                                <div className="space-y-4">
-                                    {data.certifications.flatMap(g => g.items).slice(0, 4).map((cert, idx) => (
-                                        <div key={idx}>
-                                            <h4 className="font-bold text-[13px] text-gray-900 leading-tight">{cert.name}</h4>
-                                            <div className="flex gap-2 mono-meta text-[9px] text-gray-400 uppercase mt-1">
-                                                <span>{cert.issuer}</span>
-                                                {cert.credentialId && (
-                                                    <>
-                                                        <span>&bull;</span>
-                                                        <span>ID: {cert.credentialId.split('-')[0]}...</span>
-                                                    </>
-                                                )}
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </section>
-                        </div>
-                    </div>
-                </section>
-
-                {/* Footer */}
-                <footer className="pt-24 mt-24 border-t border-gray-100 flex flex-col md:flex-row md:justify-between items-center text-center md:text-left">
-                    <p className="text-sm text-gray-400 font-sans mb-4 md:mb-0">
-                        {data.name} &bull; {data.location}
+                    <h1 className="text-3xl sm:text-4xl font-serif font-bold tracking-tight">
+                        Curriculum Vitae
+                    </h1>
+                    <p className="text-sm font-mono opacity-70">
+                        DOCUMENT SPECIFICATION &bull; UPDATED <span className="font-bold border border-reader-subtle px-1.5 py-0.5 rounded">JANUARY 2026</span>
                     </p>
-                    <div className="flex gap-8 text-sm font-sans text-gray-400">
-                        <a href={data.socials.linkedin} target="_blank" className="hover:text-gray-900 transition-colors">LinkedIn</a>
-                        <a href={`mailto:${data.socials.email}`} className="hover:text-gray-900 transition-colors">Email</a>
+                </div>
+
+                <a
+                    href="/resume.pdf"
+                    download="Harikrishna_Pillai_Resume.pdf"
+                    className="px-6 py-2.5 border-2 border-reader-accent rounded font-serif font-bold text-sm hover:bg-reader-hover transition-all flex items-center justify-center gap-2 shadow-xs whitespace-nowrap"
+                >
+                    <span>Export PDF Document</span>
+                    <span>📥</span>
+                </a>
+            </header>
+
+            {/* Resume Document Box */}
+            <section className="p-6 sm:p-10 border-2 border-reader-accent rounded-lg bg-reader-hover/10 space-y-8">
+                {/* Document Header */}
+                <div className="border-b-2 border-reader-accent pb-6 space-y-2">
+                    <h2 className="text-3xl font-serif font-bold tracking-tight uppercase">
+                        {data.name}
+                    </h2>
+                    <p className="font-sans font-semibold text-sm opacity-80">
+                        {data.role} &bull; {data.specialization}
+                    </p>
+                    <div className="flex flex-wrap gap-x-4 gap-y-1 font-mono text-xs opacity-70">
+                        <span>{data.location}</span>
+                        <span>&bull;</span>
+                        <span>{data.socials.linkedin.replace('https://', '')}</span>
+                        <span>&bull;</span>
+                        <span>{data.socials.email}</span>
                     </div>
-                </footer>
-            </div>
-        </main>
+                </div>
+
+                {/* Professional Summary */}
+                <div className="space-y-2">
+                    <h3 className="font-mono text-xs uppercase tracking-widest opacity-60 border-b border-reader-subtle pb-1">
+                        Executive Summary
+                    </h3>
+                    <p className="font-serif text-base leading-relaxed opacity-90">
+                        {data.summary}
+                    </p>
+                </div>
+
+                {/* Interactive Experience Timeline */}
+                <div className="space-y-4">
+                    <h3 className="font-mono text-xs uppercase tracking-widest opacity-60 border-b border-reader-subtle pb-1">
+                        Professional Work Experience
+                    </h3>
+
+                    {/* Timeline Position Buttons */}
+                    <div className="flex overflow-x-auto gap-2 pb-2">
+                        {data.experience.map((exp, idx) => (
+                            <button
+                                key={idx}
+                                onClick={() => setActiveIndex(idx)}
+                                className={`px-4 py-2 rounded font-mono text-xs whitespace-nowrap transition-all ${activeIndex === idx ? "border-2 border-reader-accent bg-reader-hover font-bold shadow-xs" : "border border-reader-subtle opacity-70 hover:opacity-100"}`}
+                            >
+                                {exp.company}
+                            </button>
+                        ))}
+                    </div>
+
+                    {/* Active Position Details */}
+                    {data.experience[activeIndex] && (
+                        <div className="p-5 border border-reader-subtle rounded-lg bg-reader-bg space-y-4">
+                            <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between border-b border-reader-subtle pb-3">
+                                <div>
+                                    <h4 className="font-serif font-bold text-xl">
+                                        {data.experience[activeIndex].company}
+                                    </h4>
+                                    <p className="font-sans text-xs font-semibold opacity-75">
+                                        {data.experience[activeIndex].role}
+                                    </p>
+                                </div>
+                                <span className="font-mono text-xs opacity-60">
+                                    {data.experience[activeIndex].period}
+                                </span>
+                            </div>
+
+                            <p className="font-serif text-sm italic opacity-85 border-l-2 border-reader-accent pl-3 py-0.5">
+                                {data.experience[activeIndex].narrative}
+                            </p>
+
+                            <ul className="space-y-2 pt-1">
+                                {data.experience[activeIndex].bullets.map((bullet, bIdx) => (
+                                    <li key={bIdx} className="flex gap-3 items-start font-serif text-sm opacity-90">
+                                        <span className="font-mono text-xs font-bold opacity-40 mt-0.5">•</span>
+                                        <span>{bullet}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
+                </div>
+
+                {/* Core Competencies Grid */}
+                <div className="space-y-3">
+                    <h3 className="font-mono text-xs uppercase tracking-widest opacity-60 border-b border-reader-subtle pb-1">
+                        Technical Skills & Competencies
+                    </h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        {Object.entries(data.skills).map(([category, items], idx) => (
+                            <div key={idx} className="p-3 border border-reader-subtle rounded bg-reader-bg space-y-1">
+                                <h4 className="font-mono text-[10px] uppercase tracking-wider font-bold opacity-60">
+                                    {category}
+                                </h4>
+                                <p className="font-serif text-sm opacity-90">
+                                    {items.join(', ')}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Education & Certifications Summary */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2 border-t border-reader-subtle">
+                    <div className="space-y-2">
+                        <h3 className="font-mono text-xs uppercase tracking-widest opacity-60">
+                            Academic Education
+                        </h3>
+                        {data.education.map((edu, idx) => (
+                            <div key={idx} className="font-serif">
+                                <p className="font-bold text-sm">{edu.degree}</p>
+                                <p className="text-xs opacity-75 font-sans">{edu.institution}, {edu.year}</p>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="space-y-2">
+                        <h3 className="font-mono text-xs uppercase tracking-widest opacity-60">
+                            Active Credentials
+                        </h3>
+                        <div className="space-y-1">
+                            {data.certifications.flatMap(g => g.items).slice(0, 3).map((cert, idx) => (
+                                <div key={idx} className="font-serif text-xs">
+                                    <span className="font-bold">{cert.name}</span>
+                                    <span className="font-mono text-[10px] opacity-60 block">{cert.issuer}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Chapter Navigation Footer */}
+            <section className="pt-6 border-t-2 border-reader-subtle flex justify-between items-center">
+                <Link
+                    href="/about"
+                    onClick={triggerPageFlash}
+                    className="font-serif text-sm border border-reader-subtle px-4 py-2 rounded hover:bg-reader-hover transition-colors"
+                >
+                    ← Chapter V: Philosophy
+                </Link>
+                <Link
+                    href="/"
+                    onClick={triggerPageFlash}
+                    className="font-serif font-bold text-sm border-2 border-reader-accent px-5 py-2 rounded hover:bg-reader-hover transition-all"
+                >
+                    Return to Chapter I ↺
+                </Link>
+            </section>
+        </article>
     );
 }
