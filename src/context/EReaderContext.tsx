@@ -18,6 +18,8 @@ export interface Bookmark {
 interface EReaderContextType {
     theme: ReaderTheme;
     setTheme: (theme: ReaderTheme) => void;
+    toggleDarkMode: () => void;
+    isDarkMode: boolean;
     font: ReaderFont;
     setFont: (font: ReaderFont) => void;
     fontSize: ReaderFontSize;
@@ -64,11 +66,27 @@ export const EReaderProvider: React.FC<{ children: React.ReactNode }> = ({ child
 
     const [bookmarks, setBookmarks] = useState<Bookmark[]>([]);
 
-    // Hydrate from localStorage
+    const applyThemeToHtml = (t: ReaderTheme) => {
+        if (typeof document !== "undefined") {
+            if (t === "dark") {
+                document.documentElement.classList.add("dark");
+            } else {
+                document.documentElement.classList.remove("dark");
+            }
+        }
+    };
+
+    // Hydrate from localStorage or system preference
     useEffect(() => {
         try {
             const savedTheme = localStorage.getItem("ereader_theme") as ReaderTheme;
-            if (savedTheme) setThemeState(savedTheme);
+            if (savedTheme) {
+                setThemeState(savedTheme);
+                applyThemeToHtml(savedTheme);
+            } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                setThemeState("dark");
+                applyThemeToHtml("dark");
+            }
 
             const savedFont = localStorage.getItem("ereader_font") as ReaderFont;
             if (savedFont) setFontState(savedFont);
@@ -97,8 +115,14 @@ export const EReaderProvider: React.FC<{ children: React.ReactNode }> = ({ child
 
     const setTheme = (t: ReaderTheme) => {
         setThemeState(t);
+        applyThemeToHtml(t);
         localStorage.setItem("ereader_theme", t);
         triggerPageFlash();
+    };
+
+    const toggleDarkMode = () => {
+        const nextTheme = theme === "dark" ? "paper" : "dark";
+        setTheme(nextTheme);
     };
 
     const setFont = (f: ReaderFont) => {
@@ -175,6 +199,8 @@ export const EReaderProvider: React.FC<{ children: React.ReactNode }> = ({ child
             value={{
                 theme,
                 setTheme,
+                toggleDarkMode,
+                isDarkMode: theme === "dark",
                 font,
                 setFont,
                 fontSize,

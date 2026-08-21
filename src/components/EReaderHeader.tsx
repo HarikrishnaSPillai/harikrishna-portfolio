@@ -15,6 +15,8 @@ const CHAPTER_MAP: Record<string, { number: string; title: string }> = {
 
 export default function EReaderHeader() {
     const {
+        theme,
+        toggleDarkMode,
         isControlsOpen,
         setIsControlsOpen,
         isTocOpen,
@@ -59,6 +61,11 @@ export default function EReaderHeader() {
                 <span className="hidden sm:inline-block opacity-60 text-[10px] uppercase tracking-wider">
                     Wi-Fi ⚡ 98%
                 </span>
+                {theme === "dark" && (
+                    <span className="hidden md:inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-amber-400/10 text-amber-300 font-mono text-[10px] border border-amber-400/20">
+                        🌙 Night Mode
+                    </span>
+                )}
             </div>
 
             {/* Middle: Book / Chapter Title */}
@@ -69,6 +76,24 @@ export default function EReaderHeader() {
 
             {/* Right: Controls & Actions */}
             <div className="flex items-center gap-1 sm:gap-2">
+                {/* Quick Dark Mode Toggle */}
+                <button
+                    onClick={toggleDarkMode}
+                    className={`p-1.5 rounded hover:bg-reader-hover transition-colors flex items-center justify-center ${theme === "dark" ? "text-amber-300 opacity-100" : "opacity-70 hover:opacity-100"}`}
+                    title={theme === "dark" ? "Switch to Paper / Light Theme" : "Switch to Dark Night Theme"}
+                    aria-label="Toggle Dark Mode"
+                >
+                    {theme === "dark" ? (
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                    ) : (
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
+                    )}
+                </button>
+
                 {/* Dictionary X-Ray */}
                 <button
                     onClick={() => setIsXrayOpen(true)}

@@ -9,6 +9,7 @@ export default function EReaderControlsModal() {
         setIsControlsOpen,
         theme,
         setTheme,
+        toggleDarkMode,
         font,
         setFont,
         fontSize,
@@ -23,11 +24,11 @@ export default function EReaderControlsModal() {
 
     if (!isControlsOpen) return null;
 
-    const themes: { id: ReaderTheme; name: string; bg: string; fg: string; border: string }[] = [
-        { id: "paper", name: "Paper", bg: "#F6F3EB", fg: "#1A1A1A", border: "#D8D2C2" },
-        { id: "sepia", name: "Sepia", bg: "#F4ECD8", fg: "#362819", border: "#DCCAA7" },
-        { id: "dark", name: "Dark", bg: "#181818", fg: "#E2E2E2", border: "#333333" },
-        { id: "monochrome", name: "E-Ink", bg: "#FFFFFF", fg: "#000000", border: "#000000" },
+    const themes: { id: ReaderTheme; name: string; icon: string; bg: string; fg: string; border: string }[] = [
+        { id: "paper", name: "Paper", icon: "📄", bg: "#F6F3EB", fg: "#1A1A1A", border: "#D8D2C2" },
+        { id: "sepia", name: "Sepia", icon: "☀️", bg: "#F4ECD8", fg: "#362819", border: "#DCCAA7" },
+        { id: "dark", name: "Dark", icon: "🌙", bg: "#181818", fg: "#E2E2E2", border: "#333333" },
+        { id: "monochrome", name: "E-Ink", icon: "✒️", bg: "#FFFFFF", fg: "#000000", border: "#000000" },
     ];
 
     const fontOptions: { id: ReaderFont; name: string; fontClass: string }[] = [
@@ -65,7 +66,7 @@ export default function EReaderControlsModal() {
                 {/* Modal Header */}
                 <div className="flex items-center justify-between border-b border-reader-subtle pb-3">
                     <h3 className="font-serif font-bold text-base flex items-center gap-2">
-                        <span>Aa</span> Display Settings
+                        <span>Aa</span> Display & Theme Settings
                     </h3>
                     <button
                         onClick={() => setIsControlsOpen(false)}
@@ -87,9 +88,10 @@ export default function EReaderControlsModal() {
                                 key={t.id}
                                 onClick={() => setTheme(t.id)}
                                 style={{ backgroundColor: t.bg, color: t.fg, borderColor: t.border }}
-                                className={`h-12 rounded border flex flex-col items-center justify-center font-serif text-xs font-semibold transition-all ${theme === t.id ? "ring-2 ring-reader-fg ring-offset-2 scale-105 shadow-sm" : "opacity-80 hover:opacity-100"}`}
+                                className={`h-13 rounded border flex flex-col items-center justify-center font-serif text-xs font-semibold transition-all ${theme === t.id ? "ring-2 ring-reader-fg ring-offset-2 scale-105 shadow-sm" : "opacity-80 hover:opacity-100"}`}
                             >
-                                <span>{t.name}</span>
+                                <span className="text-sm">{t.icon}</span>
+                                <span className="text-[11px] mt-0.5">{t.name}</span>
                             </button>
                         ))}
                     </div>
@@ -167,19 +169,35 @@ export default function EReaderControlsModal() {
                     </div>
                 </div>
 
-                {/* E-Ink Flash Refresh Toggle */}
-                <div className="pt-3 border-t border-reader-subtle flex items-center justify-between">
-                    <div>
-                        <span className="text-xs font-mono font-semibold block">E-Ink Refresh Effect</span>
-                        <span className="text-[10px] opacity-60 block">Simulate e-paper screen refresh flash</span>
+                {/* Toggles: Dark Mode & E-Ink */}
+                <div className="pt-3 border-t border-reader-subtle space-y-3">
+                    <div className="flex items-center justify-between">
+                        <div>
+                            <span className="text-xs font-mono font-semibold block">Dark Mode</span>
+                            <span className="text-[10px] opacity-60 block">Night reading dark theme</span>
+                        </div>
+                        <button
+                            onClick={toggleDarkMode}
+                            className={`w-11 h-6 rounded-full transition-colors relative p-0.5 ${theme === "dark" ? "bg-amber-600" : "bg-gray-400"}`}
+                            aria-label="Toggle Dark Mode"
+                        >
+                            <div className={`w-5 h-5 rounded-full bg-white transition-transform ${theme === "dark" ? "translate-x-5" : "translate-x-0"}`} />
+                        </button>
                     </div>
-                    <button
-                        onClick={() => setEinkRefresh(!einkRefresh)}
-                        className={`w-11 h-6 rounded-full transition-colors relative p-0.5 ${einkRefresh ? "bg-emerald-700" : "bg-gray-400"}`}
-                        aria-label="Toggle E-Ink Refresh"
-                    >
-                        <div className={`w-5 h-5 rounded-full bg-white transition-transform ${einkRefresh ? "translate-x-5" : "translate-x-0"}`} />
-                    </button>
+
+                    <div className="flex items-center justify-between">
+                        <div>
+                            <span className="text-xs font-mono font-semibold block">E-Ink Refresh Effect</span>
+                            <span className="text-[10px] opacity-60 block">Simulate e-paper screen refresh flash</span>
+                        </div>
+                        <button
+                            onClick={() => setEinkRefresh(!einkRefresh)}
+                            className={`w-11 h-6 rounded-full transition-colors relative p-0.5 ${einkRefresh ? "bg-emerald-700" : "bg-gray-400"}`}
+                            aria-label="Toggle E-Ink Refresh"
+                        >
+                            <div className={`w-5 h-5 rounded-full bg-white transition-transform ${einkRefresh ? "translate-x-5" : "translate-x-0"}`} />
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
